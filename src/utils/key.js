@@ -4,6 +4,8 @@ export const key = {
         TOKEN: 'auth_token',
         LANGUAGE: 'app_language',
         THEME: 'app_theme',
+        LIGHT:'light',
+        DARK:'dark'
     },
     LANGUAGES: {
         EN: 'en',

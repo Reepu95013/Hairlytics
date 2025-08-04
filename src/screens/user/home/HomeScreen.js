@@ -3,16 +3,23 @@ import React from 'react'
 import Layout from '../../../components/Layout'
 import { useTranslation } from 'react-i18next'
 import useLanguage from '../../../hooks/useLanguage'
+import { useColorTheme } from '../../../context/ThemeContext'
 
 const HomeScreen = ({ navigation }) => {
   const { t } = useTranslation();
   const { changeLanguage } = useLanguage();
+  const { themeColor, toggleTheme } = useColorTheme();
   return (
     <Layout>
       <View>
         <Text>{t('welcome')}</Text>
         <Button title="Switch to Hindi" onPress={() => changeLanguage('hi')} />
         <Button title="Switch to English" onPress={() => changeLanguage('en')} />
+
+        <TouchableOpacity onPress={toggleTheme} style={{ backgroundColor: themeColor.secondary }}>
+          <Text>Switch</Text>
+        </TouchableOpacity>
+
       </View>
 
     </Layout>

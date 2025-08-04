@@ -1,4 +1,7 @@
 {
   "welcome": "Welcome",
-  "book_appointment": "Book Appointment"
+  "book_appointment": "Book Appointment",
+  "skip": "Skip",
+  "next": "Next",
+  "get_started": "Get Started"
 }

@@ -1,4 +1,7 @@
 {
   "welcome": "स्वागत है",
-  "book_appointment": "अपॉइंटमेंट बुक करें"
+  "book_appointment": "अपॉइंटमेंट बुक करें",
+  "skip": "छोड़ें",
+  "next": "आगे",
+  "get_started": "शुरू करें"
 }

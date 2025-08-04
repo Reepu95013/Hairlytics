@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, Image, TouchableOpacity, StatusBar } from 'react-native';
 
 const SplashScreen = () => {
   return (
@@ -8,10 +8,11 @@ const SplashScreen = () => {
       style={styles.background}
       resizeMode="cover"
     >
+      <StatusBar hidden={true} />
       {/* Overlay */}
       <View style={styles.overlay}>
-        <View style={{width:300, height:300, borderRadius:150, overflow:'hidden',}}>
-          <Image source={require('../../assets/images/splashlogo.png')} style={{width:'100%', height:'100%', resizeMode:'contain', borderRadius:150}}/>
+        <View style={{ width: 300, height: 300, borderRadius: 150, overflow: 'hidden', }}>
+          <Image source={require('../../assets/images/splashlogo.png')} style={{ width: '100%', height: '100%', resizeMode: 'contain', borderRadius: 150 }} />
         </View>
       </View>
     </ImageBackground>

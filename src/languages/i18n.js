@@ -35,7 +35,7 @@ i18n
   .init({
     compatibilityJSON: 'v3', // for older versions of React Native
     // lng: 'en', // default language
-    fallbackLng: 'en',
+    // fallbackLng: 'en',
     resources: {
       en: { translation: en },
       hi: { translation: hi },
