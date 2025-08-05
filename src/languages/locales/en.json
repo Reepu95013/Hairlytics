@@ -3,5 +3,10 @@
   "book_appointment": "Book Appointment",
   "skip": "Skip",
   "next": "Next",
-  "get_started": "Get Started"
+  "get_started": "Get Started",
+  "home":"Home",
+  "profile":"Profile",
+  "appointment":"Appointment",
+  "help":"Help",
+  "setting":"Setting"
 }

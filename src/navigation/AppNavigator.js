@@ -1,9 +1,11 @@
 import { NavigationContainer } from "@react-navigation/native";
 import AdminTabNavigator from "./adminNavigation/AdminTabNavigator";
 import UserStackNavigator from "./userNavigation/UserStackNavigator";
+import { useAuth } from "../context/AuthContext";
 
 
-function AppNavigator({ isAdmin }) {
+function AppNavigator() {
+   const { isAdmin } = useAuth();
   return (
     <NavigationContainer>
       {isAdmin ==true ? (

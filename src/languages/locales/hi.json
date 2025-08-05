@@ -3,5 +3,10 @@
   "book_appointment": "अपॉइंटमेंट बुक करें",
   "skip": "छोड़ें",
   "next": "आगे",
-  "get_started": "शुरू करें"
+  "get_started": "शुरू करें",
+  "home": "होम",
+  "profile": "प्रोफ़ाइल",
+  "appointment": "अपॉइंटमेंट",
+  "help": "सहायता",
+  "setting": "सेटिंग"
 }

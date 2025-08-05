@@ -4,9 +4,9 @@ import AppNavigator from './src/navigation/AppNavigator';
 import SplashScreen from './src/screens/SplashScreen';
 import './src/languages/i18n';
 import { ThemeProvider } from './src/context/ThemeContext';
+import { AuthProvider, useAuth } from './src/context/AuthContext';
 
 const App = () => {
-  const [isAdmin, setIsAdmin] = useState(false); // could be from AsyncStorage or API
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -16,9 +16,12 @@ const App = () => {
   if (isLoading) return <SplashScreen />;
 
   return (
-    <ThemeProvider>
-      <AppNavigator isAdmin={isAdmin} />
-    </ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider>
+        <AppNavigator/>
+      </ThemeProvider>
+    </AuthProvider>
+
   );
 
 }
