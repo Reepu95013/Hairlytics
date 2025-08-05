@@ -4,7 +4,8 @@ import AppNavigator from './src/navigation/AppNavigator';
 import SplashScreen from './src/screens/SplashScreen';
 import './src/languages/i18n';
 import { ThemeProvider } from './src/context/ThemeContext';
-import { AuthProvider, useAuth } from './src/context/AuthContext';
+import { AuthProvider} from './src/context/AuthContext';
+import { LoaderProvider } from './src/context/LoaderContext';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -18,7 +19,9 @@ const App = () => {
   return (
     <AuthProvider>
       <ThemeProvider>
-        <AppNavigator/>
+        <LoaderProvider>
+          <AppNavigator />
+        </LoaderProvider>
       </ThemeProvider>
     </AuthProvider>
 

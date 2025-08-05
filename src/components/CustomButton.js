@@ -1,10 +1,10 @@
 import { View, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-const CustomButton = () => {
+const CustomButton = ({ text, width, height, borderRadius, backgroundColor, alignItems, justifyContent, textColor, fontSize, fontWeight }) => {
     return (
-        <TouchableOpacity style={{ width: '50%', height: 46, borderRadius: 24, backgroundColor: '#ffd509', alignItems: 'center', justifyContent: 'center', marginVertical: 20 }}>
-            <Text style={{ color: '#ffffff', fontSize: 20, fontWeight: '400' }}>Sign-in</Text>
+        <TouchableOpacity style={{ width: width || '100%', height: height || 46, borderRadius: borderRadius || 24, backgroundColor: backgroundColor || '#ffd509', alignItems: alignItems || 'center', justifyContent: justifyContent || 'center' }}>
+            <Text style={{ color: textColor || '#000000', fontSize: fontSize || 20, fontWeight: fontWeight || '400' }}>{text||'Text'}</Text>
         </TouchableOpacity>
     )
 }

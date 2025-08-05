@@ -58,7 +58,7 @@ const OnboardingScreen = ({ navigation }) => {
                     {currentSlideIndex === slides.length - 1 ? (
                         <TouchableOpacity
                             style={[styles.btn, { backgroundColor: themeColor.primary }]}
-                            onPress={() => navigation.replace('Drawer')}
+                            onPress={() => navigation.replace('ChooseAccount')}
                         >
                             <Text style={[styles.btnText, { color: themeColor.textPrimary }]}>{t('get_started')}</Text>
                         </TouchableOpacity>

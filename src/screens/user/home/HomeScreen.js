@@ -4,8 +4,11 @@ import Layout from '../../../components/Layout'
 import { useTranslation } from 'react-i18next'
 import useLanguage from '../../../hooks/useLanguage'
 import { useColorTheme } from '../../../context/ThemeContext'
+import CustomLoader from '../../../components/CustomLoader'
+import { useLoader } from '../../../context/LoaderContext'
 
 const HomeScreen = ({ navigation }) => {
+  const { setLoaderVisible } = useLoader();
   const { t } = useTranslation();
   const { changeLanguage } = useLanguage();
   const { themeColor, toggleTheme } = useColorTheme();
@@ -19,6 +22,7 @@ const HomeScreen = ({ navigation }) => {
         <TouchableOpacity onPress={toggleTheme} style={{ backgroundColor: themeColor.secondary }}>
           <Text>Switch</Text>
         </TouchableOpacity>
+        <Button title="start" onPress={() => setLoaderVisible(true)} />
 
       </View>
 
