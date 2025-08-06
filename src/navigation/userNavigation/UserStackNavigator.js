@@ -4,19 +4,16 @@ import OnboardingScreen from "../../screens/OnboardingScreen";
 import { StatusBar } from "react-native";
 import ChooseAccount from "../../screens/ChooseAccount";
 
-
 const Stack = createStackNavigator();
 
-const UserStackNavigator = () => {
+const UserStackNavigator = ({ onBoardingStatus, chooseAccountStatus }) => {
+
     return (
-        <Stack.Navigator >
+        <Stack.Navigator initialRouteName={onBoardingStatus && chooseAccountStatus ? 'Drawer' : onBoardingStatus ? 'ChooseAccount' : 'OnboardingScreen'}>
             <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="Drawer" component={UserDrawerNavigator} options={{ headerShown: false }} />
             <Stack.Screen name="ChooseAccount" component={ChooseAccount} options={{ headerShown: false }} />
-
+            <Stack.Screen name="Drawer" component={UserDrawerNavigator} options={{ headerShown: false }} />
         </Stack.Navigator>
-
-
     );
 };
 

@@ -6,6 +6,8 @@ import {
 import { slides } from '../utils/dataStore';
 import { useColorTheme } from '../context/ThemeContext';
 import { useTranslation } from 'react-i18next';
+import { storage } from '../utils/storage';
+import { key } from '../utils/key';
 
 const { width, height } = Dimensions.get('window');
 
@@ -37,6 +39,11 @@ const OnboardingScreen = ({ navigation }) => {
         setCurrentSlideIndex(lastSlideIndex);
     };
 
+    const onClickGetStartedButton = async () => {
+        await storage.setItem(key.STORAGE_KEYS.ONBOARDING_STATUS, true);
+        navigation.replace('ChooseAccount');
+    }
+
     const Footer = () => {
         return (
             <View style={styles.footer}>
@@ -58,7 +65,7 @@ const OnboardingScreen = ({ navigation }) => {
                     {currentSlideIndex === slides.length - 1 ? (
                         <TouchableOpacity
                             style={[styles.btn, { backgroundColor: themeColor.primary }]}
-                            onPress={() => navigation.replace('ChooseAccount')}
+                            onPress={onClickGetStartedButton}
                         >
                             <Text style={[styles.btnText, { color: themeColor.textPrimary }]}>{t('get_started')}</Text>
                         </TouchableOpacity>
@@ -85,7 +92,6 @@ const OnboardingScreen = ({ navigation }) => {
             <View style={{ width: width, height: 400, marginTop: 150 }}>
                 <Image source={item.image} style={{ height: '100%', width: '100%', resizeMode: 'contain' }} />
             </View>
-
             <Text style={styles.title}>{item.title}</Text>
             <Text style={styles.description}>{item.description}</Text>
         </View>

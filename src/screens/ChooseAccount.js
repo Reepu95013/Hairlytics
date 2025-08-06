@@ -2,9 +2,13 @@ import { View, Text, SafeAreaView, TouchableOpacity, Image } from 'react-native'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import { useColorTheme } from '../context/ThemeContext';
+import { useAuth } from '../context/AuthContext';
+import { storage } from '../utils/storage';
+import { key } from '../utils/key';
 
 const ChooseAccount = ({ navigation }) => {
     const { t } = useTranslation();
+    const { switchToAdmin } = useAuth();
     const { themeColor } = useColorTheme();
     const [accountType, setAccountType] = useState(null);
 
@@ -12,24 +16,36 @@ const ChooseAccount = ({ navigation }) => {
         setAccountType(type);
     }
 
+    const onClickContinueButton = async () => {
+        await storage.setItem(key.STORAGE_KEYS.CHOOSEACCOUNTS_STATUS, true);
+        if (accountType === 'admin') {
+            await storage.setItem(key.STORAGE_KEYS.ACCOUNT_TYPE, true);
+            switchToAdmin();
+        } else {
+            await storage.setItem(key.STORAGE_KEYS.ACCOUNT_TYPE, false);
+            navigation.replace('ChooseAccount');
+        }
+
+    }
+
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 20, backgroundColor: '#000000' }}>
             <View style={{ width: 300, height: 300, padding: 5 }}>
                 <Image source={require('../../assets/images/splashlogo.png')} style={{ width: '100%', height: '100%', resizeMode: 'contain' }} />
             </View>
-            <Text style={{ fontSize: 26, fontFamily: 'Merienda-VariableFont_wght', fontWeight: "600", marginBottom: 20, color: '#ffffff' }}>Choose Account Type</Text>
+            <Text style={{ fontSize: 26, fontFamily: 'Merienda-VariableFont_wght', fontWeight: "600", marginBottom: 20, color: '#ffffff' }}>{t('choose_account_type')}</Text>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
                 <TouchableOpacity onPress={() => onChooseAccountType('user')} style={{ width: 150, height: 150, borderWidth: 2, borderRadius: 12, justifyContent: 'center', alignItems: 'center', borderColor: accountType == 'user' ? themeColor.primary : '#ffffff' }}>
                     <View style={{ width: 80, height: 80 }}>
                         <Image source={require('../../assets/images/man.png')} style={{ width: '100%', height: '100%', resizeMode: 'contain' }} />
                     </View>
-                    <Text style={{ fontSize: 18, fontFamily: 'Merienda-VariableFont_wght', fontWeight: "600", color: '#ffffff' }}>Customer</Text>
+                    <Text style={{ fontSize: 18, fontFamily: 'Merienda-VariableFont_wght', fontWeight: "600", color: '#ffffff' }}>{t('customer')}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => onChooseAccountType('admin')} style={{ width: 150, height: 150, borderWidth: 2, borderRadius: 12, justifyContent: 'center', alignItems: 'center', borderColor: accountType == 'admin' ? themeColor.primary : '#ffffff' }}>
                     <View style={{ width: 80, height: 80 }}>
                         <Image source={require('../../assets/images/salonman.png')} style={{ width: '100%', height: '100%', resizeMode: 'contain' }} />
                     </View>
-                    <Text style={{ fontSize: 18, fontFamily: 'Merienda-VariableFont_wght', fontWeight: "600", color: '#ffffff' }}>Salon Expert</Text>
+                    <Text style={{ fontSize: 18, fontFamily: 'Merienda-VariableFont_wght', fontWeight: "600", color: '#ffffff' }}>{t('salon_expert')}</Text>
                 </TouchableOpacity>
 
             </View>
@@ -41,11 +57,11 @@ const ChooseAccount = ({ navigation }) => {
                     paddingHorizontal: 25,
                     borderRadius: 10,
                     width: '100%',
-                    opacity:accountType?1:0.5
+                    opacity: accountType ? 1 : 0.5
                 }}
-                onPress={() => navigation.replace('ChooseAccount')}
+                onPress={onClickContinueButton}
             >
-                <Text style={{ color: themeColor.textPrimary, textAlign: 'center' }}>{t('get_started')}</Text>
+                <Text style={{ color: themeColor.textPrimary, textAlign: 'center', fontFamily: 'Merienda-VariableFont_wght', }}>{t('continue')}</Text>
             </TouchableOpacity>
         </View>
 
