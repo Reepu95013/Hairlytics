@@ -2,33 +2,35 @@ import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { useColorTheme } from '../context/ThemeContext';
 
 export default function CustomBottomTabs() {
   const navigation = useNavigation();
   const route = useRoute();
+  const { themeColor } = useColorTheme();
 
   const tabs = [
     { name: 'Home', screen: 'HomeScreen', icon: 'home' },
+    { name: 'Appointment', screen: 'AppointmentScreen', icon: 'calendar-month' },
     { name: 'Profile', screen: 'ProfileScreen', icon: 'person' },
-    { name: 'Setting', screen: 'SettingScreen', icon: 'settings' },
   ];
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: themeColor.surface }]}>
       {tabs.map((tab) => (
         <TouchableOpacity
           key={tab.screen}
           style={[
-            styles.tabButton,
-            route.name === tab.screen && styles.activeTab,
+            styles.tabButton, { width: 100 },
+            route.name === tab.screen && { backgroundColor: themeColor.primary },
           ]}
 
           onPress={() => navigation.navigate(tab.screen)}
         >
-          <Icon name={tab.icon} size={24} color="red" />
-          <Text style={route.name === tab.screen ? styles.activeText : styles.text}>
+          <Icon name={tab.icon} size={24} color={route.name === tab.screen ? themeColor.primaryText : themeColor.icon} />
+          {/* <Text style={route.name === tab.screen ? styles.activeText : styles.text}>
             {tab.name}
-          </Text>
+          </Text> */}
         </TouchableOpacity>
       ))}
     </View>
@@ -38,21 +40,20 @@ export default function CustomBottomTabs() {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    height: 60,
+    height: 100,
     borderTopWidth: 1,
     borderTopColor: '#ccc',
-    backgroundColor: '#fff',
     justifyContent: 'space-around',
-    alignItems: 'center',
     position: 'absolute',
-    bottom: 60,
-    width: '80%',
-    alignSelf: 'center',
-    borderRadius: 10,
-    padding: 16
+    bottom: 0,
+    width: '100%',
+    padding: 10,
   },
   tabButton: {
     alignItems: 'center',
+    justifyContent: 'center',
+    height: 36,
+    borderRadius: 18
   },
   text: {
     color: '#888',
@@ -60,10 +61,5 @@ const styles = StyleSheet.create({
   activeText: {
     color: '#000',
     fontWeight: 'bold',
-  },
-  activeTab: {
-    borderBottomWidth: 2,
-    borderBottomColor: 'black',
-    backgroundColor: 'green'
   },
 });

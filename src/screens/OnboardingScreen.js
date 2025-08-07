@@ -53,7 +53,7 @@ const OnboardingScreen = ({ navigation }) => {
                         <View
                             key={index}
                             style={[
-                                styles.indicator,
+                                styles.indicator, { backgroundColor: themeColor.icon },
                                 currentSlideIndex === index && { backgroundColor: themeColor.primary, width: 50 }
                             ]}
                         />
@@ -67,18 +67,18 @@ const OnboardingScreen = ({ navigation }) => {
                             style={[styles.btn, { backgroundColor: themeColor.primary }]}
                             onPress={onClickGetStartedButton}
                         >
-                            <Text style={[styles.btnText, { color: themeColor.textPrimary }]}>{t('get_started')}</Text>
+                            <Text style={[styles.btnText, { color: themeColor.textPrimary, fontFamily: 'Merienda-VariableFont_wght', }]}>{t('get_started')}</Text>
                         </TouchableOpacity>
                     ) : (
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                             <TouchableOpacity
-                                style={[styles.btn, { backgroundColor: '#ddd', marginRight: 10 }]}
+                                style={[styles.btn, { backgroundColor: themeColor.secondary, marginRight: 10 }]}
                                 onPress={skip}
                             >
-                                <Text style={[styles.btnText, { color: '#000' }]}>{t('skip')}</Text>
+                                <Text style={[styles.btnText, { color: themeColor.primaryText, fontFamily: 'Merienda-VariableFont_wght' }]}>{t('skip')}</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={[styles.btn, { backgroundColor: themeColor.primary }]} onPress={goToNextSlide}>
-                                <Text style={[styles.btnText, { color: themeColor.textPrimary }]}>{t('next')}</Text>
+                                <Text style={[styles.btnText, { color: themeColor.primaryText, fontFamily: 'Merienda-VariableFont_wght' }]}>{t('next')}</Text>
                             </TouchableOpacity>
                         </View>
                     )}
@@ -89,16 +89,16 @@ const OnboardingScreen = ({ navigation }) => {
 
     const Slide = ({ item }) => (
         <View style={{ alignItems: 'center', width, paddingHorizontal: 12 }}>
-            <View style={{ width: width, height: 400, marginTop: 150 }}>
+            <View style={{ width: width, height: 350, marginTop: 150 }}>
                 <Image source={item.image} style={{ height: '100%', width: '100%', resizeMode: 'contain' }} />
             </View>
-            <Text style={styles.title}>{item.title}</Text>
-            <Text style={styles.description}>{item.description}</Text>
+            <Text style={[styles.title, { color: themeColor.text, fontFamily: 'Merienda-VariableFont_wght', }]}>{item.title}</Text>
+            <Text style={[styles.description, { color: themeColor.secondaryText, fontFamily: 'Merienda-VariableFont_wght', }]}>{item.description}</Text>
         </View>
     );
 
     return (
-        <View style={{ width: '100%', height: '100%', backgroundColor: themeColor.secondary }}>
+        <View style={{ width: '100%', height: '100%', backgroundColor: themeColor.background }}>
             <FlatList
                 ref={ref}
                 data={slides}
@@ -116,14 +116,13 @@ const OnboardingScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     title: {
-        fontSize: 24,
-        fontWeight: 'bold',
+        fontSize: 20,
+        fontWeight: '400',
         textAlign: 'center',
         marginTop: 20,
     },
     description: {
         fontSize: 16,
-        color: '#555',
         textAlign: 'center',
         marginTop: 10,
         paddingHorizontal: 20,
@@ -141,7 +140,6 @@ const styles = StyleSheet.create({
     indicator: {
         height: 8,
         width: 20,
-        backgroundColor: '#888',
         marginHorizontal: 4,
         borderRadius: 4,
     },

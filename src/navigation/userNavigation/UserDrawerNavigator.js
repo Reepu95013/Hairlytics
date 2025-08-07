@@ -15,7 +15,7 @@ const Drawer = createDrawerNavigator();
 const UserDrawerNavigator = () => {
    const { t } = useTranslation();
   return (
-    <Drawer.Navigator drawerContent={(props) => <CustomDrawer {...props} />}>
+    <Drawer.Navigator drawerContent={(props) => <CustomDrawer {...props} />} screenOptions={{ headerShown: false, }}>
       <Drawer.Screen name="HomeScreen" component={HomeScreen} options={{drawerLabel:t('home')}}/>
       <Drawer.Screen name="ProfileScreen" component={ProfileScreen} options={{drawerLabel:t('profile')}} />
       <Drawer.Screen name="AppointmentScreen" component={AppointmentScreen} options={{drawerLabel:t('appointment')}}/>

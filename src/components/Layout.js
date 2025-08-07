@@ -2,15 +2,17 @@ import { View, Text, SafeAreaView, StyleSheet } from 'react-native'
 import React from 'react'
 import CustomBottomTabs from './CustomBottomTabs'
 import { useColorTheme } from '../context/ThemeContext'
+import CustomHeader from './CustomHeader'
 
-const Layout = ({children}) => {
-  const {themeColor} = useColorTheme();
+const Layout = ({ children }) => {
+  const { themeColor } = useColorTheme();
   return (
-    <SafeAreaView style={[styles.container, {backgroundColor:themeColor.primary}]}>
+    <SafeAreaView style={[styles.container, { backgroundColor: themeColor.background }]}>
+      <CustomHeader />
       <View style={styles.content}>
         {children}
       </View>
-      <CustomBottomTabs/>
+      <CustomBottomTabs />
     </SafeAreaView>
   )
 }
@@ -24,5 +26,6 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
+    marginHorizontal: 12
   },
 });
