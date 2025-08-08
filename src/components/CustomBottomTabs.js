@@ -3,34 +3,37 @@ import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useColorTheme } from '../context/ThemeContext';
+import { useTranslation } from 'react-i18next';
 
 export default function CustomBottomTabs() {
+  const { t } = useTranslation();
   const navigation = useNavigation();
   const route = useRoute();
   const { themeColor } = useColorTheme();
 
   const tabs = [
-    { name: 'Home', screen: 'HomeScreen', icon: 'home' },
-    { name: 'Appointment', screen: 'AppointmentScreen', icon: 'calendar-month' },
-    { name: 'Profile', screen: 'ProfileScreen', icon: 'person' },
+    { name: t('home'), screen: 'HomeScreen', icon: 'home' },
+    { name: t('appointment'), screen: 'AppointmentScreen', icon: 'calendar-month' },
+    { name: t('saved'), screen: 'WishlistScreen', icon: 'favorite' },
+    { name: t('profile'), screen: 'ProfileScreen', icon: 'account-circle' },
   ];
 
   return (
-    <View style={[styles.container, { backgroundColor: themeColor.surface }]}>
+    <View style={[styles.container, { backgroundColor: themeColor.background, borderTopColor: themeColor.icon }]}>
       {tabs.map((tab) => (
         <TouchableOpacity
           key={tab.screen}
           style={[
-            styles.tabButton, { width: 100 },
-            route.name === tab.screen && { backgroundColor: themeColor.primary },
+            styles.tabButton,
+            // route.name === tab.screen && { backgroundColor: themeColor.primary },
           ]}
 
           onPress={() => navigation.navigate(tab.screen)}
         >
-          <Icon name={tab.icon} size={24} color={route.name === tab.screen ? themeColor.primaryText : themeColor.icon} />
-          {/* <Text style={route.name === tab.screen ? styles.activeText : styles.text}>
+          <Icon name={tab.icon} size={24} color={route.name === tab.screen ? themeColor.primary : themeColor.icon} />
+          <Text style={{ color: route.name === tab.screen ? themeColor?.primary : themeColor.icon, fontFamily: 'Merienda-VariableFont_wght' }}>
             {tab.name}
-          </Text> */}
+          </Text>
         </TouchableOpacity>
       ))}
     </View>
@@ -42,18 +45,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: 100,
     borderTopWidth: 1,
-    borderTopColor: '#ccc',
     justifyContent: 'space-around',
     position: 'absolute',
     bottom: 0,
     width: '100%',
-    padding: 10,
   },
   tabButton: {
     alignItems: 'center',
-    justifyContent: 'center',
-    height: 36,
-    borderRadius: 18
+    padding: 10
   },
   text: {
     color: '#888',

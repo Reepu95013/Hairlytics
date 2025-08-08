@@ -4,14 +4,21 @@
   "skip": "Skip",
   "next": "Next",
   "get_started": "Get Started",
+  
   "home": "Home",
   "profile": "Profile",
   "appointment": "Appointment",
   "help": "Help",
   "setting": "Setting",
+  "saved":"Saved",
   
   "choose_account_type": "Choose Account Type",
   "customer": "Customer",
   "salon_expert": "Salon Expert",
-  "continue": "Continue"
+  "continue": "Continue",
+
+  "hi":"Hi",
+  "good_morning":"Good Morning",
+
+  "search":"Search"
 }

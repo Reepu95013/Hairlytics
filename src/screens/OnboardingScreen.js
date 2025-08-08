@@ -72,10 +72,10 @@ const OnboardingScreen = ({ navigation }) => {
                     ) : (
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                             <TouchableOpacity
-                                style={[styles.btn, { backgroundColor: themeColor.secondary, marginRight: 10 }]}
+                                style={[styles.btn, { backgroundColor: themeColor.surface, marginRight: 10 }]}
                                 onPress={skip}
                             >
-                                <Text style={[styles.btnText, { color: themeColor.primaryText, fontFamily: 'Merienda-VariableFont_wght' }]}>{t('skip')}</Text>
+                                <Text style={[styles.btnText, { color: themeColor.surfacetText, fontFamily: 'Merienda-VariableFont_wght' }]}>{t('skip')}</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={[styles.btn, { backgroundColor: themeColor.primary }]} onPress={goToNextSlide}>
                                 <Text style={[styles.btnText, { color: themeColor.primaryText, fontFamily: 'Merienda-VariableFont_wght' }]}>{t('next')}</Text>

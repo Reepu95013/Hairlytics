@@ -3,15 +3,27 @@ import React from 'react'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { useNavigation } from '@react-navigation/native';
 import { useColorTheme } from '../context/ThemeContext';
+import { useTranslation } from 'react-i18next';
 
 const CustomHeader = () => {
+    const { t } = useTranslation();
     const { themeColor } = useColorTheme();
     const navigation = useNavigation();
     return (
-        <View style={{ marginTop: 50, marginBottom:12, marginHorizontal: 16 }}>
-            <TouchableOpacity onPress={()=>navigation.openDrawer()}>
-                <Icon name='menu' size={32} color={themeColor.icon} />
-            </TouchableOpacity>
+        <View style={{ marginTop: 60, marginBottom: 12, marginHorizontal: 16, flexDirection: 'row', gap: 16 }}>
+
+            <View>
+                <TouchableOpacity onPress={() => navigation.openDrawer()} style={{ borderColor: themeColor.icon, borderWidth: 1, padding: 5, borderRadius: 10 }}>
+                    <Icon name='menu' size={32} color={themeColor.iconSecondary} />
+                </TouchableOpacity>
+
+            </View>
+
+
+            <View>
+                <Text style={{ fontSize: 14, fontWeight: '600', fontFamily: 'Merienda-VariableFont_wght', color: themeColor.secondaryText }}>{t('hi')}, Reepu</Text>
+                <Text style={{ fontSize: 18, fontWeight: '600', fontFamily: 'Merienda-VariableFont_wght', color: themeColor.primaryText }}>{t('good_morning')}</Text>
+            </View>
         </View>
     )
 }

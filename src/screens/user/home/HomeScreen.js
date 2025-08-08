@@ -6,6 +6,7 @@ import useLanguage from '../../../hooks/useLanguage'
 import { useColorTheme } from '../../../context/ThemeContext'
 import CustomLoader from '../../../components/CustomLoader'
 import { useLoader } from '../../../context/LoaderContext'
+import CustomSearchBar from '../../../components/CustomSearchBar'
 
 const HomeScreen = ({ navigation }) => {
   const { setLoaderVisible } = useLoader();
@@ -15,14 +16,8 @@ const HomeScreen = ({ navigation }) => {
   return (
     <Layout>
       <View>
-        <Text>{t('welcome')}</Text>
-        <Button title="Switch to Hindi" onPress={() => changeLanguage('hi')} />
-        <Button title="Switch to English" onPress={() => changeLanguage('en')} />
+        <CustomSearchBar />
 
-        <TouchableOpacity onPress={toggleTheme} style={{ backgroundColor: themeColor.secondary }}>
-          <Text>Switch</Text>
-        </TouchableOpacity>
-        <Button title="start" onPress={() => setLoaderVisible(true)} />
 
       </View>
 
