@@ -15,6 +15,7 @@ export const ThemeProvider = ({ children }) => {
   const [themeColor, setThemeColor] = useState();
   const [themeType, setThemeType] = useState();
   const [loading, setLoading] = useState(true);
+  const fontFamily = 'Merienda-VariableFont_wght';
 
   useEffect(() => {
     getTheme();
@@ -44,8 +45,9 @@ export const ThemeProvider = ({ children }) => {
   const contextValue = useMemo(() => ({
     themeColor,
     themeType,
+    fontFamily,
     toggleTheme,
-  }), [themeColor, themeType]);
+  }), [themeColor, themeType,]);
 
   if (loading) return null; // Or your custom loader
 

@@ -9,7 +9,7 @@ export default function CustomBottomTabs() {
   const { t } = useTranslation();
   const navigation = useNavigation();
   const route = useRoute();
-  const { themeColor } = useColorTheme();
+  const { themeColor,fontFamily } = useColorTheme();
 
   const tabs = [
     { name: t('home'), screen: 'HomeScreen', icon: 'home' },
@@ -31,7 +31,7 @@ export default function CustomBottomTabs() {
           onPress={() => navigation.navigate(tab.screen)}
         >
           <Icon name={tab.icon} size={24} color={route.name === tab.screen ? themeColor.primary : themeColor.icon} />
-          <Text style={{ color: route.name === tab.screen ? themeColor?.primary : themeColor.icon, fontFamily: 'Merienda-VariableFont_wght' }}>
+          <Text style={{ color: route.name === tab.screen ? themeColor?.primary : themeColor.icon, fontFamily: fontFamily }}>
             {tab.name}
           </Text>
         </TouchableOpacity>

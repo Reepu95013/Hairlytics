@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, StyleSheet } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, FlatList } from 'react-native'
 import React from 'react'
 import CustomBottomTabs from './CustomBottomTabs'
 import { useColorTheme } from '../context/ThemeContext'
@@ -9,9 +9,17 @@ const Layout = ({ children }) => {
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: themeColor.background }]}>
       <CustomHeader />
-      <View style={styles.content}>
-        {children}
-      </View>
+      <FlatList
+        data={[1]}
+        renderItem={() => (
+          <View style={styles.content}>
+            {children}
+          </View>
+        )}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{paddingBottom:200}}
+      />
+
       <CustomBottomTabs />
     </SafeAreaView>
   )

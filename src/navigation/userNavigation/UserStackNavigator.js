@@ -4,6 +4,8 @@ import OnboardingScreen from "../../screens/OnboardingScreen";
 import { StatusBar } from "react-native";
 import ChooseAccount from "../../screens/ChooseAccount";
 import SearchScreen from "../../screens/user/search/SearchScreen";
+import SalonScreen from "../../screens/user/salon/SalonScreen";
+import BookAppointmentScreen from "../../screens/user/bookAppointment/BookAppointmentScreen";
 
 const Stack = createStackNavigator();
 
@@ -15,6 +17,9 @@ const UserStackNavigator = ({ onBoardingStatus, chooseAccountStatus }) => {
             <Stack.Screen name="ChooseAccount" component={ChooseAccount} options={{ headerShown: false }} />
             <Stack.Screen name="Drawer" component={UserDrawerNavigator} options={{ headerShown: false }} />
             <Stack.Screen name="SearchScreen" component={SearchScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="SalonScreen" component={SalonScreen} options={{headerShown:false}} />
+            <Stack.Screen name="BookAppointmentScreen" component={BookAppointmentScreen} options={{headerShown:false}} />
+            
         </Stack.Navigator>
     );
 };

@@ -7,6 +7,7 @@ import CustomDrawer from "../../components/CustomDrawer";
 import HomeScreen from "../../screens/user/home/HomeScreen";
 import { useTranslation } from "react-i18next";
 import WishlistScreen from "../../screens/user/wishlist/WishlistScreen";
+import { useColorTheme } from "../../context/ThemeContext";
 
 
 const Drawer = createDrawerNavigator();
@@ -14,9 +15,10 @@ const Drawer = createDrawerNavigator();
 
 
 const UserDrawerNavigator = () => {
+  const { fontFamily, themeColor } = useColorTheme();
   const { t } = useTranslation();
   return (
-    <Drawer.Navigator drawerContent={(props) => <CustomDrawer {...props} />} screenOptions={{ headerShown: false, }}>
+    <Drawer.Navigator drawerContent={(props) => <CustomDrawer {...props} />} screenOptions={{ headerShown: false, drawerLabelStyle: { fontFamily: fontFamily, color:themeColor.primaryText} , drawerStyle:{backgroundColor:themeColor.secondaryBackground}, drawerActiveBackgroundColor:themeColor.primary }} >
       <Drawer.Screen name="HomeScreen" component={HomeScreen} options={{ drawerLabel: t('home') }} />
       <Drawer.Screen name="ProfileScreen" component={ProfileScreen} options={{ drawerLabel: t('profile') }} />
       <Drawer.Screen name="AppointmentScreen" component={AppointmentScreen} options={{ drawerLabel: t('appointment') }} />

@@ -13,7 +13,7 @@ const { width, height } = Dimensions.get('window');
 
 const OnboardingScreen = ({ navigation }) => {
     const { t } = useTranslation();
-    const { themeColor } = useColorTheme();
+    const { themeColor, fontFamily } = useColorTheme();
     const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
     const ref = useRef(null);
 
@@ -67,7 +67,7 @@ const OnboardingScreen = ({ navigation }) => {
                             style={[styles.btn, { backgroundColor: themeColor.primary }]}
                             onPress={onClickGetStartedButton}
                         >
-                            <Text style={[styles.btnText, { color: themeColor.textPrimary, fontFamily: 'Merienda-VariableFont_wght', }]}>{t('get_started')}</Text>
+                            <Text style={[styles.btnText, { color: themeColor.textPrimary, fontFamily: fontFamily, }]}>{t('get_started')}</Text>
                         </TouchableOpacity>
                     ) : (
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
@@ -75,10 +75,10 @@ const OnboardingScreen = ({ navigation }) => {
                                 style={[styles.btn, { backgroundColor: themeColor.surface, marginRight: 10 }]}
                                 onPress={skip}
                             >
-                                <Text style={[styles.btnText, { color: themeColor.surfacetText, fontFamily: 'Merienda-VariableFont_wght' }]}>{t('skip')}</Text>
+                                <Text style={[styles.btnText, { color: themeColor.surfacetText, fontFamily: fontFamily }]}>{t('skip')}</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={[styles.btn, { backgroundColor: themeColor.primary }]} onPress={goToNextSlide}>
-                                <Text style={[styles.btnText, { color: themeColor.primaryText, fontFamily: 'Merienda-VariableFont_wght' }]}>{t('next')}</Text>
+                                <Text style={[styles.btnText, { color: themeColor.primaryText, fontFamily: fontFamily }]}>{t('next')}</Text>
                             </TouchableOpacity>
                         </View>
                     )}
@@ -92,8 +92,8 @@ const OnboardingScreen = ({ navigation }) => {
             <View style={{ width: width, height: 350, marginTop: 150 }}>
                 <Image source={item.image} style={{ height: '100%', width: '100%', resizeMode: 'contain' }} />
             </View>
-            <Text style={[styles.title, { color: themeColor.text, fontFamily: 'Merienda-VariableFont_wght', }]}>{item.title}</Text>
-            <Text style={[styles.description, { color: themeColor.secondaryText, fontFamily: 'Merienda-VariableFont_wght', }]}>{item.description}</Text>
+            <Text style={[styles.title, { color: themeColor.text, fontFamily: fontFamily, }]}>{item.title}</Text>
+            <Text style={[styles.description, { color: themeColor.secondaryText, fontFamily: fontFamily, }]}>{item.description}</Text>
         </View>
     );
 
