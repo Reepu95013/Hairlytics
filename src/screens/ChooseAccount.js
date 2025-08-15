@@ -6,26 +6,26 @@ import { useAuth } from '../context/AuthContext';
 import { storage } from '../utils/storage';
 import { key } from '../utils/key';
 
-const ChooseAccount = ({ navigation }) => {
+const ChooseAccount = () => {
     const { t } = useTranslation();
-    const { switchToAdmin, switchToUser } = useAuth();
+    const { setIsAdmin, setChooseAccountStatus } = useAuth();
     const { themeColor, fontFamily } = useColorTheme();
     const [accountType, setAccountType] = useState(null);
 
-    const onChooseAccountType = (type) => {
+    const onChooseAccountType = async (type) => {
         setAccountType(type);
+        setIsAdmin(type);
+        if (type === 'admin') {
+            await storage.setItem(key.STORAGE_KEYS.ACCOUNT_TYPE, type);
+        } else {
+            await storage.setItem(key.STORAGE_KEYS.ACCOUNT_TYPE, type);
+
+        }
     }
 
     const onClickContinueButton = async () => {
         await storage.setItem(key.STORAGE_KEYS.CHOOSEACCOUNTS_STATUS, true);
-        if (accountType === 'admin') {
-            await storage.setItem(key.STORAGE_KEYS.ACCOUNT_TYPE, true);
-            switchToAdmin();
-        } else {
-            await storage.setItem(key.STORAGE_KEYS.ACCOUNT_TYPE, false);
-            switchToUser();
-        }
-
+        setChooseAccountStatus(true);
     }
 
     return (

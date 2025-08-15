@@ -5,7 +5,7 @@ import { key } from '../utils/key';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(null);
   const [onBoardingStatus, setOnBoardingStatus] = useState(null);
   const [chooseAccountStatus, setChooseAccountStatus] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -17,22 +17,22 @@ export const AuthProvider = ({ children }) => {
 
   const getOnBoardingAndChooseAccountStatus = async () => {
     const accountType = await storage.getItem(key.STORAGE_KEYS.ACCOUNT_TYPE);
+    console.log("accountType", accountType);
     setIsAdmin(accountType);
     const status = await storage.getItem(key.STORAGE_KEYS.ONBOARDING_STATUS);
+    console.log("status", status);
     setOnBoardingStatus(status);
     const chooseAccountStatus = await storage.getItem(key.STORAGE_KEYS.CHOOSEACCOUNTS_STATUS);
     setChooseAccountStatus(chooseAccountStatus);
+    console.log("chooseAccountStatus", chooseAccountStatus);
     setLoading(false);
 
   }
 
-  const switchToAdmin = () => setIsAdmin(true);
-  const switchToUser = () => setIsAdmin(false);
-
   if (loading) return null;
 
   return (
-    <AuthContext.Provider value={{ isAdmin, switchToAdmin, switchToUser, onBoardingStatus, chooseAccountStatus }}>
+    <AuthContext.Provider value={{ isAdmin, setIsAdmin, setOnBoardingStatus, setChooseAccountStatus, onBoardingStatus, chooseAccountStatus }}>
       {children}
     </AuthContext.Provider>
   );

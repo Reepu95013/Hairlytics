@@ -44,20 +44,20 @@ const CustomCalendar = () => {
             {/* Header */}
             <View style={styles.header}>
                 <TouchableOpacity onPress={goToPreviousMonth}>
-                    <Text style={[styles.navBtn, { color: themeColor.iconSecondary }]}>◀</Text>
+                    <Text style={[styles.navBtn, { color: themeColor.primaryText }]}>◀</Text>
                 </TouchableOpacity>
-                <Text style={[styles.headerText, { color: themeColor.primaryText }]}>
+                <Text style={[styles.headerText, { color: themeColor.primaryText, fontFamily: fontFamily }]}>
                     {months[month]} {year}
                 </Text>
                 <TouchableOpacity onPress={goToNextMonth}>
-                    <Text style={[styles.navBtn, { color: themeColor.iconSecondary }]}>▶</Text>
+                    <Text style={[styles.navBtn, { color: themeColor.primaryText }]}>▶</Text>
                 </TouchableOpacity>
             </View>
 
             {/* Weekdays */}
             <View style={styles.weekDays}>
                 {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day, idx) => (
-                    <Text key={idx} style={styles.weekDay}>{day}</Text>
+                    <Text key={idx} style={[styles.weekDay, {fontFamily:fontFamily, color:themeColor.primaryText}]}>{day}</Text>
                 ))}
             </View>
 
@@ -74,7 +74,7 @@ const CustomCalendar = () => {
                     const disabled = isDateDisabled(day);
 
                     return (
-                        <TouchableOpacity onPress={()=>console.log(day)}
+                        <TouchableOpacity onPress={() => console.log(day)}
                             key={day}
                             style={[
                                 styles.dayCell,
@@ -82,7 +82,7 @@ const CustomCalendar = () => {
                             ]}
                             disabled={disabled}
                         >
-                            <Text style={{ color: disabled ? "#aaa" : "#000" }}>{day}</Text>
+                            <Text style={{ color: disabled ? "#aaa" : "#000" , fontFamily:fontFamily}}>{day}</Text>
                         </TouchableOpacity>
                     );
                 })}
@@ -96,10 +96,10 @@ const styles = StyleSheet.create({
     header: {
         flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginBottom: 10
     },
-    headerText: { fontSize: 18, fontWeight: "bold" },
+    headerText: { fontSize: 18, fontWeight: "600" },
     navBtn: { fontSize: 20, padding: 5 },
     weekDays: { flexDirection: "row", justifyContent: "space-around", marginBottom: 5 },
-    weekDay: { width: 40, textAlign: "center", fontWeight: "bold" },
+    weekDay: { width: 40, textAlign: "center", fontWeight: "600" },
     daysContainer: { flexDirection: "row", flexWrap: "wrap" },
     dayCell: {
         width: 40, height: 40, justifyContent: "center", alignItems: "center",

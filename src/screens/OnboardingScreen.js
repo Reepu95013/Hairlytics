@@ -8,10 +8,12 @@ import { useColorTheme } from '../context/ThemeContext';
 import { useTranslation } from 'react-i18next';
 import { storage } from '../utils/storage';
 import { key } from '../utils/key';
+import { useAuth } from '../context/AuthContext';
 
 const { width, height } = Dimensions.get('window');
 
-const OnboardingScreen = ({ navigation }) => {
+const OnboardingScreen = () => {
+    const { setOnBoardingStatus } = useAuth();
     const { t } = useTranslation();
     const { themeColor, fontFamily } = useColorTheme();
     const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
@@ -41,7 +43,7 @@ const OnboardingScreen = ({ navigation }) => {
 
     const onClickGetStartedButton = async () => {
         await storage.setItem(key.STORAGE_KEYS.ONBOARDING_STATUS, true);
-        navigation.replace('ChooseAccount');
+        setOnBoardingStatus(true);
     }
 
     const Footer = () => {

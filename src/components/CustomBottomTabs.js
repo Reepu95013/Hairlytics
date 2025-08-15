@@ -43,7 +43,7 @@ export default function CustomBottomTabs() {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    height: 100,
+    height: 120,
     borderTopWidth: 1,
     justifyContent: 'space-around',
     position: 'absolute',

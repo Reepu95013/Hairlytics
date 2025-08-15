@@ -6,20 +6,26 @@ import ChooseAccount from "../../screens/ChooseAccount";
 import SearchScreen from "../../screens/user/search/SearchScreen";
 import SalonScreen from "../../screens/user/salon/SalonScreen";
 import BookAppointmentScreen from "../../screens/user/bookAppointment/BookAppointmentScreen";
+import PaymentSummaryScreen from "../../screens/user/paymentSummary/PaymentSummaryScreen";
+import CompleteBookingScreen from "../../screens/user/CompleteBooking/CompleteBookingScreen";
 
 const Stack = createStackNavigator();
 
-const UserStackNavigator = ({ onBoardingStatus, chooseAccountStatus }) => {
+const UserStackNavigator = () => {
+
+    // console.log(onBoardingStatus, chooseAccountStatus);
 
     return (
-        <Stack.Navigator initialRouteName={onBoardingStatus && chooseAccountStatus ? 'Drawer' : onBoardingStatus ? 'ChooseAccount' : 'OnboardingScreen'}>
+        <Stack.Navigator initialRouteName={'Drawer'}>
             <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} options={{ headerShown: false }} />
             <Stack.Screen name="ChooseAccount" component={ChooseAccount} options={{ headerShown: false }} />
             <Stack.Screen name="Drawer" component={UserDrawerNavigator} options={{ headerShown: false }} />
             <Stack.Screen name="SearchScreen" component={SearchScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="SalonScreen" component={SalonScreen} options={{headerShown:false}} />
-            <Stack.Screen name="BookAppointmentScreen" component={BookAppointmentScreen} options={{headerShown:false}} />
-            
+            <Stack.Screen name="SalonScreen" component={SalonScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="BookAppointmentScreen" component={BookAppointmentScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="PaymentSummaryScreen" component={PaymentSummaryScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="CompleteBookingScreen" component={CompleteBookingScreen} options={{ headerShown: false }} />
+
         </Stack.Navigator>
     );
 };
