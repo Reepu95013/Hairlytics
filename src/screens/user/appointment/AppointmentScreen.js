@@ -1,11 +1,31 @@
-import { View, Text } from 'react-native'
+import { View, Text, Pressable, FlatList } from 'react-native'
 import React from 'react'
 import Layout from '../../../components/Layout'
+import { useColorTheme } from '../../../context/ThemeContext';
+import createStyles from '../../../constants/styles';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import AppointmentOrderCard from './AppointmentComponents/AppointmentOrderCard';
 
 const AppointmentScreen = () => {
+  const { themeColor, fontFamily } = useColorTheme();
+  const styles = createStyles(themeColor, fontFamily);
+
+  const renderItem = ({ item }) => (
+    <AppointmentOrderCard />
+  );
+
   return (
     <Layout>
-      <Text>Appointment</Text>
+      <View>
+        <FlatList
+          data={[1, 2, 3, 4, 5, 6, 7]}
+          renderItem={renderItem}
+          keyExtractor={(item, index) => index.toString()}
+          contentContainerStyle={{ gap:10 }}
+          ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
+        />
+      </View>
+
     </Layout>
   )
 }

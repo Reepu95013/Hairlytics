@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
           </View>
         )}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{paddingBottom:200}}
+        contentContainerStyle={{ paddingBottom: 200 }}
       />
 
       <CustomBottomTabs />

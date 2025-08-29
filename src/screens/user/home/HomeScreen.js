@@ -50,11 +50,6 @@ const HomeScreen = ({ navigation }) => {
         </View>
         <CustomOfferCardList />
 
-
-
-
-
-
       </View>
 
     </Layout>

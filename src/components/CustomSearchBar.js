@@ -3,12 +3,14 @@ import React from 'react'
 import { useColorTheme } from '../context/ThemeContext';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useTranslation } from 'react-i18next';
+import { useNavigation } from '@react-navigation/native';
 
 const CustomSearchBar = () => {
     const { themeColor, fontFamily } = useColorTheme();
     const { t } = useTranslation();
+    const navigation = useNavigation();
     return (
-        <Pressable onPress={() => Alert.alert('search bar clicked')} style={{ width: '100%', borderRadius: 12, borderWidth: 1, borderColor: themeColor.icon, flexDirection: 'row', alignItems: 'center', gap: 20, padding: 10 }}>
+        <Pressable onPress={() => navigation.navigate('SearchScreen')} style={{ width: '100%', borderRadius: 12, borderWidth: 1, borderColor: themeColor.border, flexDirection: 'row', alignItems: 'center', gap: 20, padding: 10 }}>
             <Icon name="search" size={28} color={themeColor.iconSecondary} />
             <Text style={{ color: themeColor.secondaryText, fontSize: 16, fontFamily: fontFamily,}}>{t('search')}</Text>
         </Pressable>
