@@ -1,10 +1,12 @@
-import { View, Text, Pressable, TouchableOpacity } from 'react-native'
+import { View, Text, Pressable, TouchableOpacity, Image, ImageBackground } from 'react-native'
 import React from 'react'
 import SecondLayout from '../../../components/SecondLayout'
 import { useColorTheme } from '../../../context/ThemeContext';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import createStyles from '../../../constants/styles';
 import { useNavigation } from '@react-navigation/native';
+import SearchSmallItemCard from './SearchComponents/SearchSmallItemCard';
+import CustomItemCardList from '../../../components/CustomItemCardList';
 
 const SearchResultScreen = ({ route }) => {
     const { themeColor, fontFamily } = useColorTheme();
@@ -31,7 +33,14 @@ const SearchResultScreen = ({ route }) => {
 
     return (
         <SecondLayout CustomHeader={CustomHeader}>
-            <Text>SearchResultScreen</Text>
+            <View style={{ gap: 20 }}>
+                <Text style={styles.header}>Recommended For You</Text>
+                <SearchSmallItemCard />
+                <Text style={styles.header}>Near To You</Text>
+                <CustomItemCardList />
+                <Text style={styles.header}>All Barber shop</Text>
+                <CustomItemCardList />
+            </View>
         </SecondLayout>
     )
 }

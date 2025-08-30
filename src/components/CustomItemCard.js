@@ -6,19 +6,19 @@ import { useColorTheme } from '../context/ThemeContext';
 import createStyles from '../constants/styles';
 import { useNavigation } from '@react-navigation/native';
 
-const CustomItemCard = () => {
+const CustomItemCard = ({ width, height }) => {
     const { t } = useTranslation();
     const { themeColor, fontFamily } = useColorTheme();
     const styles = createStyles(themeColor, fontFamily);
     const navigation = useNavigation();
     return (
-        <Pressable onPress={() => navigation.navigate('SalonScreen')} style={{ width: 280, height: 'auto' }}>
-            <ImageBackground source={require('../../assets/images/haircuting.png')} style={{ width: 280, height: 180, padding: 8, flexDirection: 'row', justifyContent: 'space-between' }} imageStyle={{ borderRadius: 12 }}>
-                <View style={{ backgroundColor: themeColor.surface, borderRadius: 6, width: 64, height: 32, gap: 5, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
+        <Pressable onPress={() => navigation.navigate('SalonScreen')} style={{ width: width || 280, height: 'auto' }}>
+            <ImageBackground source={require('../../assets/images/haircuting.png')} style={{ width: width || 280, height: height || 180, paddingVertical: 8, flexDirection: 'row', justifyContent: 'space-between' }} imageStyle={{ borderRadius: 12, width:'100%' }}>
+                <View style={{ backgroundColor: themeColor.surface, borderRadius: 6, width: 64, height: 32, gap: 5, flexDirection: 'row', alignItems: 'center', justifyContent: 'center',marginLeft:8 }}>
                     <Icon name={'star-rate'} size={16} color={themeColor.primary} />
                     <Text style={{ color: themeColor.primary }}>5/5</Text>
                 </View>
-                <Pressable style={{ backgroundColor: themeColor.surface, width: 38, height: 38, alignItems: 'center', justifyContent: 'center', borderRadius: 6 }}>
+                <Pressable style={{ backgroundColor: themeColor.surface, width: 38, height: 38, alignItems: 'center', justifyContent: 'center', borderRadius: 6 , marginRight:8}}>
                     <Icon name={'favorite'} size={24} color={themeColor.primary} />
                 </Pressable>
             </ImageBackground>

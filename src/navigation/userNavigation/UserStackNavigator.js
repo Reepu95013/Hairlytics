@@ -9,6 +9,7 @@ import BookAppointmentScreen from "../../screens/user/bookAppointment/BookAppoin
 import PaymentSummaryScreen from "../../screens/user/paymentSummary/PaymentSummaryScreen";
 import CompleteBookingScreen from "../../screens/user/CompleteBooking/CompleteBookingScreen";
 import SearchResultScreen from "../../screens/user/search/SearchResultScreen";
+import AppointmentViewScreen from "../../screens/user/appointment/AppointmentViewScreen";
 
 const Stack = createStackNavigator();
 
@@ -27,6 +28,7 @@ const UserStackNavigator = () => {
             <Stack.Screen name="BookAppointmentScreen" component={BookAppointmentScreen} options={{ headerShown: false }} />
             <Stack.Screen name="PaymentSummaryScreen" component={PaymentSummaryScreen} options={{ headerShown: false }} />
             <Stack.Screen name="CompleteBookingScreen" component={CompleteBookingScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="AppointmentViewScreen" component={AppointmentViewScreen} options={{ headerShown: false }} />
 
         </Stack.Navigator>
     );

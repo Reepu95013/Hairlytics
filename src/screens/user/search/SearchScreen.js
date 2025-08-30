@@ -40,7 +40,7 @@ const SearchScreen = ({ navigation }) => {
                 <SearchInput onChangeText={(text) => setSearch(text)} value={search} onSubmitEditing={() => navigation.replace('SearchResultScreen', { query: search })} />
                 {search.length > 0 && (
                     <FlatList
-                        data={filteredData.slice(0, 10)}
+                        data={filteredData}
                         keyExtractor={(item, index) => index.toString()}
                         renderItem={({ item }) => (
                             <Pressable onPress={() => navigation.replace('SearchResultScreen', { query: item })}>

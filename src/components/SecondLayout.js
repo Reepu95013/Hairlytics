@@ -37,7 +37,7 @@ const SecondLayout = ({ children, screenName, CustomHeader, CustomBottom }) => {
                 )}
                 ListHeaderComponent={headerRender}
                 showsVerticalScrollIndicator={false}
-                contentContainerStyle={{ paddingBottom: 10 }}
+                contentContainerStyle={{ paddingBottom: 150,}}
             />
 
             {CustomBottom && <CustomBottom />}

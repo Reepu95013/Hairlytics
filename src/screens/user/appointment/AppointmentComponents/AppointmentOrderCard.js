@@ -3,10 +3,12 @@ import React from 'react'
 import { useColorTheme } from '../../../../context/ThemeContext';
 import createStyles from '../../../../constants/styles';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { useNavigation } from '@react-navigation/native';
 
 const AppointmentOrderCard = () => {
     const { themeColor, fontFamily } = useColorTheme();
     const styles = createStyles(themeColor, fontFamily);
+    const navigation = useNavigation();
     return (
         <View style={{ borderWidth: 1, borderRadius: 12, padding: 10, borderColor: themeColor.border, gap: 10, backgroundColor: themeColor.secondaryBackground }}>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
@@ -16,7 +18,7 @@ const AppointmentOrderCard = () => {
                     <Text style={[styles.text, { color: themeColor.success }]}>7:00am</Text>
                 </View>
 
-                <Pressable style={{ paddingHorizontal: 10, borderWidth: 1, paddingVertical: 4, borderRadius: 10, backgroundColor: themeColor.primary }}>
+                <Pressable onPress={() => navigation.navigate('AppointmentViewScreen')} style={{ paddingHorizontal: 10, borderWidth: 1, paddingVertical: 4, borderRadius: 10, backgroundColor: themeColor.primary }}>
                     <Text style={[styles.text, { color: themeColor.primaryText }]}>View</Text>
                 </Pressable>
 
