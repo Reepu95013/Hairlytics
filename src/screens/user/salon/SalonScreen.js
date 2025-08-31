@@ -6,10 +6,12 @@ import { useColorTheme } from '../../../context/ThemeContext'
 import createStyles from '../../../constants/styles'
 import CustomServiceCardList from '../../../components/CustomServiceCardList'
 import CustomPhotoCardList from '../../../components/CustomPhotoCardList'
+import { useTranslation } from 'react-i18next'
 
 
 const SalonScreen = ({ navigation }) => {
     const { themeColor, fontFamily } = useColorTheme();
+      const { t } = useTranslation();
     const styles = createStyles(themeColor, fontFamily);
 
     const salonHeader = () => (
@@ -26,7 +28,7 @@ const SalonScreen = ({ navigation }) => {
     const salonBottom = () => (
         <View style={{paddingHorizontal:20, marginBottom:50}}>
             <Pressable onPress={()=>navigation.navigate('BookAppointmentScreen')} style={{ backgroundColor: themeColor.primary, paddingVertical: 10, borderRadius: 20, marginTop: 10 }}>
-                <Text style={[styles.largeText, { textAlign: 'center' }]}>Book Appointment</Text>
+                <Text style={[styles.largeText, { textAlign: 'center' }]}>{t('book_appointment')}</Text>
             </Pressable>
         </View>
     )
@@ -40,7 +42,7 @@ const SalonScreen = ({ navigation }) => {
                                 <Icon name={'star-rate'} size={16} color={themeColor.primary} />
                                 <Text style={{ color: themeColor.primary, fontFamily: fontFamily }}>5/5</Text>
                             </View>
-                            <Text style={{ color: themeColor.secondaryText, fontFamily: fontFamily }}>5/5 (40 Reviews)</Text>
+                            <Text style={{ color: themeColor.secondaryText, fontFamily: fontFamily }}>5/5 (40 {t('reviews')})</Text>
                         </View>
                         <View style={{ flexDirection: 'row', gap: 6, alignItems: 'center' }}>
                             <Icon name={'schedule'} size={14} color={themeColor.secondaryText} />
@@ -56,27 +58,27 @@ const SalonScreen = ({ navigation }) => {
                 <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
                     <View style={{ width: 80, height: 80, backgroundColor: themeColor.surface, borderRadius: 12, alignItems: 'center', justifyContent: 'center' }}>
                         <Icon name='phone-in-talk' size={28} color={themeColor.primary} />
-                        <Text style={[styles.text, { color: themeColor.surfacetText }]}>Call</Text>
+                        <Text style={[styles.text, { color: themeColor.surfacetText }]}>{t('call')}</Text>
                     </View>
                     <View style={{ width: 80, height: 80, backgroundColor: themeColor.surface, borderRadius: 12, alignItems: 'center', justifyContent: 'center' }}>
                         <Icon name='chat' size={28} color={themeColor.primary} />
-                        <Text style={[styles.text, { color: themeColor.surfacetText }]}>Message</Text>
+                        <Text style={[styles.text, { color: themeColor.surfacetText }]}>{t('message')}</Text>
                     </View>
                     <View style={{ width: 80, height: 80, backgroundColor: themeColor.surface, borderRadius: 12, alignItems: 'center', justifyContent: 'center' }}>
                         <Icon name='location-on' size={28} color={themeColor.primary} />
-                        <Text style={[styles.text, { color: themeColor.surfacetText }]}>Direction</Text>
+                        <Text style={[styles.text, { color: themeColor.surfacetText }]}>{t('direction')}</Text>
                     </View>
                     <View style={{ width: 80, height: 80, backgroundColor: themeColor.surface, borderRadius: 12, alignItems: 'center', justifyContent: 'center' }}>
                         <Icon name='share' size={28} color={themeColor.primary} />
-                        <Text style={[styles.text, { color: themeColor.surfacetText }]}>Share</Text>
+                        <Text style={[styles.text, { color: themeColor.surfacetText }]}>{t('share')}</Text>
                     </View>
                 </View>
                 <View style={{ gap: 10 }}>
-                    <Text style={styles.header}>All Service</Text>
+                    <Text style={styles.header}>{t('all_service')}</Text>
                     <CustomServiceCardList />
                 </View>
                 <View style={{ gap: 10 }}>
-                    <Text style={styles.header}>Photos</Text>
+                    <Text style={styles.header}>{t('photos')}</Text>
                     <CustomPhotoCardList />
                 </View>
             </View>

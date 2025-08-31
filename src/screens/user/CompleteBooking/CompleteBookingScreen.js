@@ -5,8 +5,10 @@ import LottieView from 'lottie-react-native'
 import { useColorTheme } from '../../../context/ThemeContext'
 import createStyles from '../../../constants/styles'
 import { CommonActions, useNavigation } from '@react-navigation/native'
+import { useTranslation } from 'react-i18next'
 
 const CompleteBookingScreen = () => {
+  const { t } = useTranslation();
   const { themeColor, fontFamily } = useColorTheme();
   const styles = createStyles(themeColor, fontFamily);
   const navigation = useNavigation();
@@ -41,7 +43,7 @@ const CompleteBookingScreen = () => {
   };
 
   return (
-    <CustomHeaderLayout screenName={''} customBack={()=>backAction()}>
+    <CustomHeaderLayout screenName={''} customBack={() => backAction()}>
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <LottieView
           source={require("../../../../assets/lottieAnimations/success.json")}
@@ -49,8 +51,8 @@ const CompleteBookingScreen = () => {
           loop={false}
           style={{ width: 200, height: 200 }}
         />
-        <Text style={styles.largeText}>Your Appointment has been Booked Successfully!</Text>
-        <Text style={styles.largeText}>Your Appointment No. 1001</Text>
+        <Text style={styles.largeText}>{t('your_appointment_booked_successfully')}</Text>
+        <Text style={styles.largeText}>{t('your_appointment_no')} 1001</Text>
 
       </View>
 

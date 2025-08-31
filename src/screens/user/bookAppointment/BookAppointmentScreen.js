@@ -7,9 +7,11 @@ import CustomHeaderLayout from '../../../components/CustomHeaderLayout'
 import CustomCalendarModal from '../../../components/CustomCalendarModal'
 import AppointmentPackageModal from './BookAppointmentComponents/AppointmentPackageModal'
 import AppointmentServiceCard from './BookAppointmentComponents/AppointmentServiceCard'
+import { useTranslation } from 'react-i18next'
 
 
-const BookAppointmentScreen = ({navigation}) => {
+const BookAppointmentScreen = ({ navigation }) => {
+    const { t } = useTranslation();
     const { themeColor, fontFamily } = useColorTheme();
     const styles = createStyles(themeColor, fontFamily);
     const [selectAllToggle, setSelectAllToggle] = useState(false);
@@ -18,19 +20,19 @@ const BookAppointmentScreen = ({navigation}) => {
 
     const renderHeader = () => (
         <View style={{ gap: 10 }}>
-            <Text style={styles.largeText}>Select Date</Text>
+            <Text style={styles.largeText}>{t('select_date')}</Text>
             <TouchableOpacity onPress={() => setCalendarVisible(true)} style={{ height: 46, width: '100%', borderWidth: 1, borderColor: themeColor.border, borderRadius: 12, justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 10, flexDirection: 'row' }}>
                 <Text style={styles.largeText}>15/Aug/2025</Text>
                 <Icon name='calendar-month' size={24} color={themeColor.text} />
             </TouchableOpacity>
-            <Text style={styles.largeText}>Select Package</Text>
+            <Text style={styles.largeText}>{t('select_package')}</Text>
             <TouchableOpacity onPress={() => setPackageVisible(true)} style={{ height: 46, width: '100%', borderWidth: 1, borderColor: themeColor.border, borderRadius: 12, justifyContent: 'center', paddingHorizontal: 10 }}>
-                <Text style={styles.largeText}>Select Package</Text>
+                <Text style={styles.largeText}>{t('select_package')}</Text>
             </TouchableOpacity>
             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-                <Text style={styles.largeText}>Select Service</Text>
+                <Text style={styles.largeText}>{t('select_service')}</Text>
                 <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
-                    <Text style={styles.largeText}>Select All</Text>
+                    <Text style={styles.largeText}>{t('select_all')}</Text>
                     <Pressable onPress={() => setSelectAllToggle(!selectAllToggle)}>
                         <Icon name={selectAllToggle ? 'toggle-on' : 'toggle-off'} size={42} color={selectAllToggle ? themeColor.primary : themeColor.icon} />
                     </Pressable>
@@ -47,12 +49,12 @@ const BookAppointmentScreen = ({navigation}) => {
     const footerButton = () => (
         <View style={{ paddingHorizontal: 20, marginBottom: 50 }}>
             <Pressable onPress={() => navigation.navigate('PaymentSummaryScreen')} style={{ backgroundColor: themeColor.primary, paddingVertical: 10, borderRadius: 20, marginTop: 10 }}>
-                <Text style={[styles.largeText, { textAlign: 'center' }]}>Next</Text>
+                <Text style={[styles.largeText, { textAlign: 'center' }]}>{t('next')}</Text>
             </Pressable>
         </View>
     )
     return (
-        <CustomHeaderLayout screenName={'Book Appointment'} CustomBottom={footerButton} >
+        <CustomHeaderLayout screenName={t('book_appointment')} CustomBottom={footerButton} >
             {/* <CustomCalendar /> */}
 
             <View>
