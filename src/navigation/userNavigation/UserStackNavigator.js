@@ -10,6 +10,10 @@ import PaymentSummaryScreen from "../../screens/user/paymentSummary/PaymentSumma
 import CompleteBookingScreen from "../../screens/user/CompleteBooking/CompleteBookingScreen";
 import SearchResultScreen from "../../screens/user/search/SearchResultScreen";
 import AppointmentViewScreen from "../../screens/user/appointment/AppointmentViewScreen";
+import AboutScreen from "../../screens/user/profile/AboutScreen";
+import RatingScreen from "../../screens/user/profile/RatingScreen";
+import SendFeedbackScreen from "../../screens/user/profile/SendFeedbackScreen";
+import EditProfileSreen from "../../screens/user/profile/EditProfileSreen";
 
 const Stack = createStackNavigator();
 
@@ -29,6 +33,10 @@ const UserStackNavigator = () => {
             <Stack.Screen name="PaymentSummaryScreen" component={PaymentSummaryScreen} options={{ headerShown: false }} />
             <Stack.Screen name="CompleteBookingScreen" component={CompleteBookingScreen} options={{ headerShown: false }} />
             <Stack.Screen name="AppointmentViewScreen" component={AppointmentViewScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="AboutScreen" component={AboutScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="RatingScreen" component={RatingScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="SendFeedbackScreen" component={SendFeedbackScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="EditProfileSreen" component={EditProfileSreen} options={{ headerShown: false }} />
 
         </Stack.Navigator>
     );

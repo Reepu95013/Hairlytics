@@ -11,7 +11,7 @@ import AppearanceModal from './ProfileComponents/AppearanceModal'
 import useLanguage from '../../../hooks/useLanguage'
 import { useTranslation } from 'react-i18next'
 
-const ProfileScreen = () => {
+const ProfileScreen = ({navigation}) => {
   const { changeLanguage, currentLanguage } = useLanguage();
   const { t } = useTranslation();
   const { themeColor, fontFamily, themeType } = useColorTheme();
@@ -32,7 +32,7 @@ const ProfileScreen = () => {
 
         <View style={{ flexDirection: 'row', backgroundColor: themeColor.secondaryBackground, padding: 10, borderRadius: 10, justifyContent: 'space-between' }}>
           <Text style={styles.largeText}>{t('your_profile')}</Text>
-          <Pressable style={{ flexDirection: 'row', gap: 5 }}>
+          <Pressable style={{ flexDirection: 'row', gap: 5 }} onPress={()=>navigation.navigate('EditProfileSreen')}>
             <Text style={styles.text}>30% {t('complete')}</Text>
             <RightArrowIcon size={32} color={themeColor.iconSecondary} />
           </Pressable>
@@ -57,7 +57,7 @@ const ProfileScreen = () => {
 
         <View style={{ flexDirection: 'row', backgroundColor: themeColor.secondaryBackground, padding: 10, borderRadius: 10, justifyContent: 'space-between' }}>
           <Text style={styles.largeText}>{t('your_rating')}</Text>
-          <Pressable style={{}}>
+          <Pressable style={{}} onPress={()=>navigation.navigate('RatingScreen')}>
             <RightArrowIcon size={32} color={themeColor.iconSecondary} />
           </Pressable>
         </View>
@@ -66,13 +66,13 @@ const ProfileScreen = () => {
           <Text style={[styles.largeText, { borderLeftWidth: 4, borderColor: themeColor.success, paddingLeft: 10 }]}>{t('more')}</Text>
           <View style={{ flexDirection: 'row', borderRadius: 10, justifyContent: 'space-between' }}>
             <Text style={styles.largeText}>{t('about')}</Text>
-            <Pressable style={{}}>
+            <Pressable style={{}} onPress={()=>navigation.navigate('AboutScreen')}>
               <RightArrowIcon size={32} color={themeColor.iconSecondary} />
             </Pressable>
           </View>
           <View style={{ flexDirection: 'row', borderRadius: 10, justifyContent: 'space-between' }}>
             <Text style={styles.largeText}>{t('send_feedback')}</Text>
-            <Pressable style={{}}>
+            <Pressable style={{}} onPress={()=>navigation.navigate('SendFeedbackScreen')}>
               <RightArrowIcon size={32} color={themeColor.iconSecondary} />
             </Pressable>
           </View>

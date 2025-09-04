@@ -45,12 +45,19 @@
   "more": "More",
   "about": "About",
   "send_feedback": "Send Feedback",
-  "log_out": "Send Feedback",
+  "feedback": "Feedback",
+  "log_out": "Log out",
   "hindi": "Hindi",
   "english": "English",
   "light": "Light",
   "dark": "Dark",
-  
+  "name":"Name",
+  "mobile":"Mobile",
+  "email":"Email",
+  "update":"Update",
+
+
+
   "_comment": "temprorry text",
   "all_categories": "All Categories",
   "hair_cut": "HairCut",
