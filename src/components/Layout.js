@@ -1,5 +1,5 @@
 import { View, Text, SafeAreaView, StyleSheet, FlatList } from 'react-native'
-import React from 'react'
+import React, { memo } from 'react'
 import CustomBottomTabs from './CustomBottomTabs'
 import { useColorTheme } from '../context/ThemeContext'
 import CustomHeader from './CustomHeader'
@@ -25,7 +25,6 @@ const Layout = ({ children }) => {
   )
 }
 
-export default Layout
 
 const styles = StyleSheet.create({
   container: {
@@ -37,3 +36,5 @@ const styles = StyleSheet.create({
     marginHorizontal: 12
   },
 });
+
+export default memo(Layout)

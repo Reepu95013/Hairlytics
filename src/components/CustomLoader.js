@@ -1,6 +1,6 @@
 // components/Loader.js
 import LottieView from 'lottie-react-native';
-import React from 'react';
+import React, { memo } from 'react';
 import { View, Modal, ActivityIndicator, StyleSheet } from 'react-native';
 
 const CustomLoader = ({ visible }) => {
@@ -20,7 +20,7 @@ const CustomLoader = ({ visible }) => {
     );
 };
 
-export default CustomLoader;
+export default memo(CustomLoader);
 
 const styles = StyleSheet.create({
     container: {

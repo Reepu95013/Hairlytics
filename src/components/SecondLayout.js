@@ -1,5 +1,5 @@
 import { View, Text, SafeAreaView, StyleSheet, FlatList, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { memo } from 'react'
 import { useColorTheme } from '../context/ThemeContext'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { useNavigation } from '@react-navigation/native'
@@ -37,7 +37,7 @@ const SecondLayout = ({ children, screenName, CustomHeader, CustomBottom }) => {
                 )}
                 ListHeaderComponent={headerRender}
                 showsVerticalScrollIndicator={false}
-                contentContainerStyle={{ paddingBottom: 150,}}
+                contentContainerStyle={{ paddingBottom: 150, }}
             />
 
             {CustomBottom && <CustomBottom />}
@@ -45,7 +45,6 @@ const SecondLayout = ({ children, screenName, CustomHeader, CustomBottom }) => {
     )
 }
 
-export default SecondLayout
 
 const customstyles = StyleSheet.create({
     container: {
@@ -57,3 +56,5 @@ const customstyles = StyleSheet.create({
         marginHorizontal: 12
     },
 });
+
+export default memo(SecondLayout);

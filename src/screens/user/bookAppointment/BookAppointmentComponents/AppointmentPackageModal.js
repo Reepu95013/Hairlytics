@@ -1,5 +1,5 @@
 import { View, Text, Modal, TouchableWithoutFeedback, StyleSheet, Pressable, FlatList } from 'react-native'
-import React from 'react'
+import React, { memo } from 'react'
 import { useColorTheme } from '../../../../context/ThemeContext';
 import createStyles from '../../../../constants/styles';
 
@@ -41,8 +41,6 @@ const AppointmentPackageModal = ({ visible, setVisible }) => {
     )
 }
 
-export default AppointmentPackageModal
-
 
 const customStyles = StyleSheet.create({
     container: {
@@ -59,3 +57,5 @@ const customStyles = StyleSheet.create({
         maxHeight:'70%'
     },
 });
+
+export default memo(AppointmentPackageModal);

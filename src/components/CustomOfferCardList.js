@@ -1,5 +1,5 @@
 import { View, Text, FlatList } from 'react-native'
-import React from 'react'
+import React, { memo } from 'react'
 import CustomOfferCard from './CustomOfferCard';
 
 const CustomOfferCardList = () => {
@@ -21,4 +21,4 @@ const CustomOfferCardList = () => {
     )
 }
 
-export default CustomOfferCardList
+export default memo(CustomOfferCardList);

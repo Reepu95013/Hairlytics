@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { memo } from 'react'
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 
 const CustomDrawer = (props) => {
@@ -21,7 +21,7 @@ const CustomDrawer = (props) => {
   );
 }
 
-export default CustomDrawer
+export default memo(CustomDrawer);
 
 
 const styles = StyleSheet.create({

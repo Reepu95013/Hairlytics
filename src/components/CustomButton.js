@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Pressable, Text, StyleSheet, ActivityIndicator } from "react-native";
 import { useColorTheme } from "../context/ThemeContext";
 import createStyles from "../constants/styles";
@@ -64,4 +64,6 @@ const styles = StyleSheet.create({
     },
 });
 
-export default CustomButton;
+
+
+export default memo(CustomButton);

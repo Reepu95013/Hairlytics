@@ -1,5 +1,5 @@
 import { View, Text, FlatList } from 'react-native'
-import React from 'react'
+import React, { memo } from 'react'
 import CustomItemCard from './CustomItemCard';
 
 const CustomItemCardList = () => {
@@ -21,4 +21,4 @@ const CustomItemCardList = () => {
     )
 }
 
-export default CustomItemCardList
+export default memo(CustomItemCardList);

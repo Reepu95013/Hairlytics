@@ -1,5 +1,5 @@
 import { View, Text, Pressable } from 'react-native'
-import React, { useState } from 'react'
+import React, { memo, useState } from 'react'
 import { useColorTheme } from '../../../../context/ThemeContext';
 import createStyles from '../../../../constants/styles';
 import Icon from 'react-native-vector-icons/MaterialIcons'
@@ -29,4 +29,4 @@ const AppointmentServiceCard = () => {
     )
 }
 
-export default AppointmentServiceCard
+export default memo(AppointmentServiceCard);

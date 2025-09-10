@@ -1,5 +1,5 @@
 import { View, Text, FlatList } from 'react-native'
-import React from 'react'
+import React, { memo } from 'react'
 import CustomCategoryCard from './CustomCategoryCard';
 
 const CustomCategoryCardList = () => {
@@ -21,4 +21,4 @@ const CustomCategoryCardList = () => {
     )
 }
 
-export default CustomCategoryCardList
+export default memo(CustomCategoryCardList);

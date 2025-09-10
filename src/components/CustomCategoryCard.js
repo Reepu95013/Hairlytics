@@ -1,5 +1,5 @@
 import { View, Text, Image } from 'react-native'
-import React from 'react'
+import React, { memo } from 'react'
 import { useColorTheme } from '../context/ThemeContext';
 import { useTranslation } from 'react-i18next';
 
@@ -17,4 +17,5 @@ const CustomCategoryCard = () => {
     )
 }
 
-export default CustomCategoryCard
+
+export default memo(CustomCategoryCard);

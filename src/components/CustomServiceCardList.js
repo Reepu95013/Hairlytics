@@ -1,5 +1,5 @@
 import { View, Text, FlatList } from 'react-native'
-import React from 'react'
+import React, { memo } from 'react'
 import CustomServiceCard from './CustomServiceCard'
 
 const CustomServiceCardList = () => {
@@ -26,4 +26,4 @@ const CustomServiceCardList = () => {
     )
 }
 
-export default CustomServiceCardList
+export default memo(CustomServiceCardList);

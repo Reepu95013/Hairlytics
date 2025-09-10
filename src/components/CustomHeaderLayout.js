@@ -1,5 +1,5 @@
 import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { memo } from 'react'
 import { useColorTheme } from '../context/ThemeContext';
 import { useNavigation } from '@react-navigation/native';
 import createStyles from '../constants/styles';
@@ -30,7 +30,7 @@ const CustomHeaderLayout = ({ children, screenName, CustomHeader, CustomBottom, 
     )
 }
 
-export default CustomHeaderLayout
+
 
 const customstyles = StyleSheet.create({
     container: {
@@ -42,3 +42,5 @@ const customstyles = StyleSheet.create({
         marginHorizontal: 12
     },
 });
+
+export default memo(CustomHeaderLayout)

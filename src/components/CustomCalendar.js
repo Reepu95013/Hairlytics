@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Alert } from "react-native";
 import { useColorTheme } from "../context/ThemeContext";
 
@@ -57,7 +57,7 @@ const CustomCalendar = () => {
             {/* Weekdays */}
             <View style={styles.weekDays}>
                 {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day, idx) => (
-                    <Text key={idx} style={[styles.weekDay, {fontFamily:fontFamily, color:themeColor.primaryText}]}>{day}</Text>
+                    <Text key={idx} style={[styles.weekDay, { fontFamily: fontFamily, color: themeColor.primaryText }]}>{day}</Text>
                 ))}
             </View>
 
@@ -82,7 +82,7 @@ const CustomCalendar = () => {
                             ]}
                             disabled={disabled}
                         >
-                            <Text style={{ color: disabled ? "#aaa" : "#000" , fontFamily:fontFamily}}>{day}</Text>
+                            <Text style={{ color: disabled ? "#aaa" : "#000", fontFamily: fontFamily }}>{day}</Text>
                         </TouchableOpacity>
                     );
                 })}
@@ -110,4 +110,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default CustomCalendar;
+export default memo(CustomCalendar);

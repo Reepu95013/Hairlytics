@@ -1,5 +1,5 @@
 import { View, Text, ImageBackground, Pressable } from 'react-native'
-import React from 'react'
+import React, { memo } from 'react'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useTranslation } from 'react-i18next';
 import { useColorTheme } from '../context/ThemeContext';
@@ -41,4 +41,4 @@ const CustomItemCard = ({ width, height }) => {
     )
 }
 
-export default CustomItemCard
+export default memo(CustomItemCard);

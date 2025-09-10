@@ -1,5 +1,5 @@
 import { View, Text, Pressable, Alert } from 'react-native'
-import React from 'react'
+import React, { memo } from 'react'
 import { useColorTheme } from '../context/ThemeContext';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useTranslation } from 'react-i18next';
@@ -17,4 +17,4 @@ const CustomSearchBar = () => {
     )
 }
 
-export default CustomSearchBar
+export default memo(CustomSearchBar)

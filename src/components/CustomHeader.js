@@ -1,5 +1,5 @@
 import { View, Text, SafeAreaView, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { memo } from 'react'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { useNavigation } from '@react-navigation/native';
 import { useColorTheme } from '../context/ThemeContext';
@@ -28,4 +28,4 @@ const CustomHeader = () => {
     )
 }
 
-export default CustomHeader
+export default memo(CustomHeader)

@@ -1,5 +1,5 @@
 import { View, Text, Modal, Pressable } from 'react-native'
-import React, { useState } from 'react'
+import React, { memo, useState } from 'react'
 import { useColorTheme } from '../../../../context/ThemeContext';
 import createStyles from '../../../../constants/styles';
 import { CloseIcon, RadioCheckIcon, RadioUnCheckIcon } from '../../../../iconComponents/IconComponents';
@@ -78,4 +78,4 @@ const LanguageModal = ({ visible, onClose }) => {
     )
 }
 
-export default LanguageModal
+export default memo(LanguageModal);

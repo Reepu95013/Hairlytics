@@ -1,5 +1,5 @@
 import { View, Text, TextInput } from 'react-native'
-import React from 'react'
+import React, { memo } from 'react'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useColorTheme } from '../../../../context/ThemeContext';
 import { useTranslation } from 'react-i18next';
@@ -27,4 +27,4 @@ const SearchInput = ({ onChangeText, onSubmitEditing, value }) => {
     )
 }
 
-export default SearchInput
+export default memo(SearchInput)

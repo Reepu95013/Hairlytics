@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, memo } from 'react';
 import { View, Text, FlatList, Image, StyleSheet, Dimensions } from 'react-native';
 import { useColorTheme } from '../context/ThemeContext';
 
@@ -100,4 +100,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default CustomAutoSlider;
+export default memo(CustomAutoSlider);

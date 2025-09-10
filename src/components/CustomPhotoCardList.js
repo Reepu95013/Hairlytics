@@ -1,5 +1,5 @@
 import { View, Text, FlatList } from 'react-native'
-import React from 'react'
+import React, { memo } from 'react'
 import CustomPhotoCard from './CustomPhotoCard';
 
 const CustomPhotoCardList = () => {
@@ -21,4 +21,4 @@ const CustomPhotoCardList = () => {
     )
 }
 
-export default CustomPhotoCardList
+export default memo(CustomPhotoCardList);

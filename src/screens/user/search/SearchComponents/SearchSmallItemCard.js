@@ -1,5 +1,5 @@
 import { View, Text, Image } from 'react-native'
-import React from 'react'
+import React, { memo } from 'react'
 import { useColorTheme } from '../../../../context/ThemeContext';
 import createStyles from '../../../../constants/styles';
 
@@ -24,4 +24,4 @@ const SearchSmallItemCard = () => {
     )
 }
 
-export default SearchSmallItemCard
+export default memo(SearchSmallItemCard);
