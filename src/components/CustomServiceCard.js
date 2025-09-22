@@ -4,6 +4,7 @@ import { useColorTheme } from '../context/ThemeContext';
 import createStyles from '../constants/styles';
 
 const CustomServiceCard = ({ item }) => {
+    console.log('custom service card render');
     const { themeColor, fontFamily } = useColorTheme();
     const styles = createStyles(themeColor, fontFamily);
     return (

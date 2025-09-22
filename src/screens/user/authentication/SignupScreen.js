@@ -1,11 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
+import SecondLayout from '../../../components/SecondLayout'
 
 const SignupScreen = () => {
   return (
-    <View>
+    <SecondLayout>
       <Text>SignupScreen</Text>
-    </View>
+    </SecondLayout>
   )
 }
 

@@ -61,6 +61,7 @@ const BookAppointmentScreen = ({ navigation }) => {
                 <FlatList
                     data={[1, 2, 3, 4, 5,]}
                     renderItem={renderItem}
+                    keyExtractor={(item, index) => index.toString()}
                     ListHeaderComponent={renderHeader}
                     contentContainerStyle={{ gap: 10, paddingBottom: 150 }}
                     showsVerticalScrollIndicator={false}

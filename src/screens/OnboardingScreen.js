@@ -69,7 +69,7 @@ const OnboardingScreen = () => {
                             style={[styles.btn, { backgroundColor: themeColor.primary }]}
                             onPress={onClickGetStartedButton}
                         >
-                            <Text style={[styles.btnText, { color: themeColor.textPrimary, fontFamily: fontFamily, }]}>{t('get_started')}</Text>
+                            <Text style={[styles.btnText, { color: themeColor.primaryText, fontFamily: fontFamily,textAlign:'center' }]}>{t('get_started')}</Text>
                         </TouchableOpacity>
                     ) : (
                         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>

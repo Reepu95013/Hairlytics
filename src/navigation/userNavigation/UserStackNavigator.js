@@ -14,6 +14,8 @@ import AboutScreen from "../../screens/user/profile/AboutScreen";
 import RatingScreen from "../../screens/user/profile/RatingScreen";
 import SendFeedbackScreen from "../../screens/user/profile/SendFeedbackScreen";
 import EditProfileSreen from "../../screens/user/profile/EditProfileSreen";
+import SignupScreen from "../../screens/user/authentication/SignupScreen";
+import LoginScreen from "../../screens/user/authentication/LoginScreen";
 
 const Stack = createStackNavigator();
 
@@ -21,8 +23,10 @@ const UserStackNavigator = () => {
 
     // console.log(onBoardingStatus, chooseAccountStatus);
 
+    const islogin = false;
+
     return (
-        <Stack.Navigator initialRouteName={'Drawer'}>
+        <Stack.Navigator initialRouteName={islogin ? 'Drawer' : 'LoginScreen'}>
             <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} options={{ headerShown: false }} />
             <Stack.Screen name="ChooseAccount" component={ChooseAccount} options={{ headerShown: false }} />
             <Stack.Screen name="Drawer" component={UserDrawerNavigator} options={{ headerShown: false }} />
@@ -37,6 +41,8 @@ const UserStackNavigator = () => {
             <Stack.Screen name="RatingScreen" component={RatingScreen} options={{ headerShown: false }} />
             <Stack.Screen name="SendFeedbackScreen" component={SendFeedbackScreen} options={{ headerShown: false }} />
             <Stack.Screen name="EditProfileSreen" component={EditProfileSreen} options={{ headerShown: false }} />
+            <Stack.Screen name="SignupScreen" component={SignupScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="LoginScreen" component={LoginScreen} options={{ headerShown: false }} />
 
         </Stack.Navigator>
     );

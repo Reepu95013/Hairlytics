@@ -1,8 +1,9 @@
 import { View, Text, FlatList } from 'react-native'
-import React, { memo } from 'react'
+import React, { memo, useCallback, useMemo } from 'react'
 import CustomServiceCard from './CustomServiceCard'
 
 const CustomServiceCardList = () => {
+   
     const data = [
         { id: "1", image: require('../../assets/images/facial.png') },
         { id: "2", image: require('../../assets/images/masaj.png') },
@@ -12,9 +13,11 @@ const CustomServiceCardList = () => {
         { id: "6", image: require('../../assets/images/nailpolish.png') },
     ]
 
-    const renderItem = ({ item }) => (
+   
+
+    const renderItem = useCallback(({ item }) => (
         <CustomServiceCard item={item} />
-    )
+    ), []);
     return (
         <FlatList
             data={data}

@@ -11,7 +11,7 @@ const CustomPhotoCardList = () => {
         <View>
             <FlatList
                 data={data}
-                keyExtractor={item => { item.toString() }}
+                keyExtractor={(item, index) => index.toString()}
                 renderItem={renderItem}
                 horizontal
                 showsHorizontalScrollIndicator={false}
