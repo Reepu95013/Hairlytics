@@ -1,4 +1,4 @@
-import { createStackNavigator } from "@react-navigation/stack";
+import { CardStyleInterpolators, createStackNavigator, TransitionPresets } from "@react-navigation/stack";
 import UserDrawerNavigator from "./UserDrawerNavigator";
 import OnboardingScreen from "../../screens/OnboardingScreen";
 import { StatusBar } from "react-native";
@@ -26,7 +26,7 @@ const UserStackNavigator = () => {
     const islogin = false;
 
     return (
-        <Stack.Navigator initialRouteName={islogin ? 'Drawer' : 'LoginScreen'}>
+        <Stack.Navigator initialRouteName={islogin ? 'Drawer' : 'LoginScreen'} screenOptions={{...TransitionPresets.ModalFadeTransition}}>
             <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} options={{ headerShown: false }} />
             <Stack.Screen name="ChooseAccount" component={ChooseAccount} options={{ headerShown: false }} />
             <Stack.Screen name="Drawer" component={UserDrawerNavigator} options={{ headerShown: false }} />
@@ -41,7 +41,7 @@ const UserStackNavigator = () => {
             <Stack.Screen name="RatingScreen" component={RatingScreen} options={{ headerShown: false }} />
             <Stack.Screen name="SendFeedbackScreen" component={SendFeedbackScreen} options={{ headerShown: false }} />
             <Stack.Screen name="EditProfileSreen" component={EditProfileSreen} options={{ headerShown: false }} />
-            <Stack.Screen name="SignupScreen" component={SignupScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="SignupScreen" component={SignupScreen} options={{ headerShown: false}} />
             <Stack.Screen name="LoginScreen" component={LoginScreen} options={{ headerShown: false }} />
 
         </Stack.Navigator>

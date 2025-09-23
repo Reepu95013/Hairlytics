@@ -14,6 +14,7 @@ const CustomInputText = ({
     errorMessage,
     style,
     required = false,
+    maxLength
 }) => {
     const { themeColor, fontFamily } = useColorTheme();
     const commonStyles = createStyles(themeColor, fontFamily);
@@ -50,6 +51,7 @@ const CustomInputText = ({
                 placeholder={placeholder}
                 secureTextEntry={secureTextEntry}
                 keyboardType={keyboardType}
+                maxLength={maxLength}
                 style={[styles.input, commonStyles.text, { backgroundColor: themeColor.secondaryBackground, borderColor: themeColor.border }, error ? styles.errorInput : null, style]}
                 onBlur={() => {
                     setTouched(true);
