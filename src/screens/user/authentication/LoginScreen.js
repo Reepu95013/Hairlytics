@@ -18,8 +18,8 @@ const LoginScreen = ({navigation}) => {
         <Image source={require('../../../../assets/images/splashlogo.png')} style={{ width: 200, height: 200, resizeMode: 'contain', alignSelf: 'center' }} />
 
         <CustomInputText
-          label={t('email')}
-          placeholder={t('email')}
+          label={t('username')}
+          placeholder={t('username')}
           required
         />
         <CustomInputText

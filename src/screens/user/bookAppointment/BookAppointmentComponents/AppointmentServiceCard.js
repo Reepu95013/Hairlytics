@@ -3,11 +3,13 @@ import React, { memo, useState } from 'react'
 import { useColorTheme } from '../../../../context/ThemeContext';
 import createStyles from '../../../../constants/styles';
 import Icon from 'react-native-vector-icons/MaterialIcons'
+import { useNavigation } from '@react-navigation/native';
 
 const AppointmentServiceCard = () => {
     const { themeColor, fontFamily } = useColorTheme();
     const styles = createStyles(themeColor, fontFamily);
     const [selectAllToggle, setSelectAllToggle] = useState(false);
+    const navigation=useNavigation();
     return (
         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
             <View style={{ flexDirection: 'row', gap: 10 }}>
@@ -17,7 +19,7 @@ const AppointmentServiceCard = () => {
                 <View>
                     <Text style={styles.largeText}>Hair Cutting</Text>
                     <Text style={styles.text}>$40</Text>
-                    <Pressable>
+                    <Pressable onPress={()=>navigation.navigate('GalleryScreen')}>
                         <Text style={[styles.text, { textDecorationLine: 'underline', fontSize: 10 }]}>View All Design</Text>
                     </Pressable>
                 </View>

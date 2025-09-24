@@ -23,9 +23,28 @@ const SignupScreen = ({ navigation }) => {
           required
         />
         <CustomInputText
+          label={t('full_name')}
+          placeholder={t('full_name')}
+          required
+        />
+        <CustomInputText
+          label={t('birth')}
+          placeholder={t('birth')}
+          required
+        />
+        <CustomInputText
           label={t('email')}
           placeholder={t('email')}
           required
+        />
+        <CustomInputText
+          label={t('phone')}
+          placeholder={t('phone')}
+          required
+          keyboardType='number'
+          maxLength={10}
+          onChangeText={(text) => console.log(text)}
+
         />
         <Text style={[commonStyles.text, { textAlign: 'right' }]}>{t('get_otp')}?</Text>
         <CustomInputText

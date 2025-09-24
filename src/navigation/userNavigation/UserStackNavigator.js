@@ -16,6 +16,7 @@ import SendFeedbackScreen from "../../screens/user/profile/SendFeedbackScreen";
 import EditProfileSreen from "../../screens/user/profile/EditProfileSreen";
 import SignupScreen from "../../screens/user/authentication/SignupScreen";
 import LoginScreen from "../../screens/user/authentication/LoginScreen";
+import GalleryScreen from "../../screens/user/gallery/GalleryScreen";
 
 const Stack = createStackNavigator();
 
@@ -23,7 +24,7 @@ const UserStackNavigator = () => {
 
     // console.log(onBoardingStatus, chooseAccountStatus);
 
-    const islogin = false;
+    const islogin = true;
 
     return (
         <Stack.Navigator initialRouteName={islogin ? 'Drawer' : 'LoginScreen'} screenOptions={{...TransitionPresets.ModalFadeTransition}}>
@@ -43,6 +44,8 @@ const UserStackNavigator = () => {
             <Stack.Screen name="EditProfileSreen" component={EditProfileSreen} options={{ headerShown: false }} />
             <Stack.Screen name="SignupScreen" component={SignupScreen} options={{ headerShown: false}} />
             <Stack.Screen name="LoginScreen" component={LoginScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="GalleryScreen" component={GalleryScreen} options={{ headerShown: false }} />
+            
 
         </Stack.Navigator>
     );
