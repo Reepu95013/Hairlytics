@@ -1,9 +1,10 @@
 import { NavigationContainer } from "@react-navigation/native";
-import AdminTabNavigator from "./adminNavigation/AdminTabNavigator";
 import UserStackNavigator from "./userNavigation/UserStackNavigator";
 import { useAuth } from "../context/AuthContext";
 import ChooseAccount from "../screens/ChooseAccount";
 import OnboardingScreen from "../screens/OnboardingScreen";
+import { key } from "../utils/key";
+import AdminStackNavigator from "./adminNavigation/AdminStackNavigator";
 
 
 function AppNavigator() {
@@ -18,16 +19,11 @@ function AppNavigator() {
           <OnboardingScreen />
         ) : chooseAccountStatus !== true ? (
           <ChooseAccount />
-        ) : isAdmin === 'admin' ? (
-          <AdminTabNavigator />
+        ) : isAdmin === key.STORAGE_KEYS.ADMIN ? (
+          <AdminStackNavigator />
         ) : (
-          <UserStackNavigator/>
+          <UserStackNavigator />
         )}
-      {/* {isAdmin === 'admin' ? (<AdminTabNavigator />) : (
-        <UserStackNavigator onBoardingStatus={onBoardingStatus} chooseAccountStatus={chooseAccountStatus} />
-      )
-
-      } */}
     </NavigationContainer>
   );
 }

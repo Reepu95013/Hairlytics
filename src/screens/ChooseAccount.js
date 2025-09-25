@@ -15,12 +15,13 @@ const ChooseAccount = () => {
     const onChooseAccountType = async (type) => {
         setAccountType(type);
         setIsAdmin(type);
-        if (type === 'admin') {
-            await storage.setItem(key.STORAGE_KEYS.ACCOUNT_TYPE, type);
-        } else {
-            await storage.setItem(key.STORAGE_KEYS.ACCOUNT_TYPE, type);
+        await storage.setItem(key.STORAGE_KEYS.ACCOUNT_TYPE, type);
+        // if (type === 'admin') {
+        //     await storage.setItem(key.STORAGE_KEYS.ACCOUNT_TYPE, type);
+        // } else {
+        //     await storage.setItem(key.STORAGE_KEYS.ACCOUNT_TYPE, type);
 
-        }
+        // }
     }
 
     const onClickContinueButton = async () => {
@@ -35,13 +36,13 @@ const ChooseAccount = () => {
             </View>
             <Text style={{ fontSize: 26, fontFamily: fontFamily, fontWeight: "600", marginBottom: 20, color: themeColor.primaryText }}>{t('choose_account_type')}</Text>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
-                <TouchableOpacity onPress={() => onChooseAccountType('user')} style={{ width: 150, height: 150, borderWidth: 2, borderRadius: 12, justifyContent: 'center', alignItems: 'center', borderColor: accountType == 'user' ? themeColor.primary : '#ffffff' }}>
+                <TouchableOpacity onPress={() => onChooseAccountType(key.STORAGE_KEYS.USER)} style={{ width: 150, height: 150, borderWidth: 2, borderRadius: 12, justifyContent: 'center', alignItems: 'center', borderColor: accountType == 'user' ? themeColor.primary : '#ffffff' }}>
                     <View style={{ width: 80, height: 80 }}>
                         <Image source={require('../../assets/images/man.png')} style={{ width: '100%', height: '100%', resizeMode: 'contain' }} />
                     </View>
                     <Text style={{ fontSize: 18, fontFamily: fontFamily, fontWeight: "600", color: themeColor.primaryText }}>{t('customer')}</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => onChooseAccountType('admin')} style={{ width: 150, height: 150, borderWidth: 2, borderRadius: 12, justifyContent: 'center', alignItems: 'center', borderColor: accountType == 'admin' ? themeColor.primary : '#ffffff' }}>
+                <TouchableOpacity onPress={() => onChooseAccountType(key.STORAGE_KEYS.ADMIN)} style={{ width: 150, height: 150, borderWidth: 2, borderRadius: 12, justifyContent: 'center', alignItems: 'center', borderColor: accountType == 'admin' ? themeColor.primary : '#ffffff' }}>
                     <View style={{ width: 80, height: 80 }}>
                         <Image source={require('../../assets/images/salonman.png')} style={{ width: '100%', height: '100%', resizeMode: 'contain' }} />
                     </View>

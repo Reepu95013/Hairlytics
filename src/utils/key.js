@@ -2,7 +2,7 @@ import OnboardingScreen from "../screens/OnboardingScreen";
 
 export const key = {
     STORAGE_KEYS: {
-        USER: 'user_data',
+        USER_DATA: 'user_data',
         TOKEN: 'auth_token',
         LANGUAGE: 'app_language',
         THEME: 'app_theme',
@@ -12,7 +12,9 @@ export const key = {
         BARBER: 'barber',
         ONBOARDING_STATUS: 'onboarding_status',
         CHOOSEACCOUNTS_STATUS: 'chooseaccount_status',
-        ACCOUNT_TYPE:'account_type'
+        ACCOUNT_TYPE:'account_type',
+        ADMIN:'admin',
+        USER:'user',
     },
     LANGUAGES: {
         EN: 'en',

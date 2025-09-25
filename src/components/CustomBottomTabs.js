@@ -54,13 +54,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10
   },
-  text: {
-    color: '#888',
-  },
-  activeText: {
-    color: '#000',
-    fontWeight: 'bold',
-  },
+  
 });
 
 
