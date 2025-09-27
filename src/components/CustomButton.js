@@ -48,20 +48,12 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         marginVertical: 16,
     },
-    enabled: {
-        backgroundColor: "#007AFF",
-    },
-    disabled: {
-        backgroundColor: "#A9A9A9",
-    },
+    
+    
     pressed: {
         opacity: 0.7,
     },
-    text: {
-        color: "#fff",
-        fontSize: 16,
-        fontWeight: "600",
-    },
+    
 });
 
 

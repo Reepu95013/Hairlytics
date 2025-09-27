@@ -8,6 +8,7 @@ import { RightArrowIcon } from '../../../iconComponents/IconComponents';
 import useLanguage from '../../../hooks/useLanguage';
 import AppearanceModal from '../../user/profile/ProfileComponents/AppearanceModal';
 import LanguageModal from '../../user/profile/ProfileComponents/LanguageModal';
+import CustomAccountSwitch from '../../../components/CustomAccountSwitch';
 
 const AdminSettingScreen = () => {
   const { t } = useTranslation();
@@ -16,6 +17,7 @@ const AdminSettingScreen = () => {
   const commonStyles = createStyles(themeColor, fontFamily);
   const [languageModal, setLanguageModal] = useState(false);
   const [appearanceModal, setAppearanceModal] = useState(false);
+  const [accountSwitchModal, setAccountSwitchModal] = useState(false);
   return (
     <AdminLayout>
       <View style={{ padding: 12, }}>
@@ -73,7 +75,7 @@ const AdminSettingScreen = () => {
 
               <View style={{ flexDirection: 'row', borderRadius: 10, justifyContent: 'space-between' }}>
                 <Text style={commonStyles.largeText}>{t('switch_account')}</Text>
-                <Pressable style={{}}>
+                <Pressable onPress={()=>setAccountSwitchModal(true)} style={{}}>
                   <RightArrowIcon size={32} color={themeColor.iconSecondary} />
                 </Pressable>
               </View>
@@ -84,6 +86,7 @@ const AdminSettingScreen = () => {
 
       <AppearanceModal visible={appearanceModal} onClose={() => setAppearanceModal(false)} />
       <LanguageModal visible={languageModal} onClose={() => setLanguageModal(false)} />
+      <CustomAccountSwitch visible={accountSwitchModal} onClose={()=>setAccountSwitchModal(false)}/>
 
     </AdminLayout>
   )

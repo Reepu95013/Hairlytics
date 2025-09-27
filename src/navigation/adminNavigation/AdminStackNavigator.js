@@ -2,16 +2,34 @@
 import { createStackNavigator, TransitionPresets } from "@react-navigation/stack";
 import AdminDrawerNavigator from "./AdminDrawerNavigator";
 import AdminLoginScreen from "../../screens/admin/adminAuth/AdminLoginScreen";
+import AdminRegisterScreen from "../../screens/admin/adminAuth/AdminRegisterScreen";
+import {useLogin } from "../../context/LoginContext";
 
 const Stack = createStackNavigator();
 
 
 const AdminStackNavigator = () => {
-  const islogin = false;
+  const { userToken} = useLogin();
+  
+
+
   return (
-    <Stack.Navigator initialRouteName={islogin ? 'AdminDrawer' : 'AdminLoginScreen'} screenOptions={{ ...TransitionPresets.ModalFadeTransition }}>
-      <Stack.Screen name="AdminDrawer" component={AdminDrawerNavigator} options={{ headerShown: false }} />
-      <Stack.Screen name="AdminLoginScreen" component={AdminLoginScreen} options={{ headerShown: false }} />
+    <Stack.Navigator initialRouteName={userToken ? 'AdminDrawer' : 'AdminLoginScreen'} screenOptions={{ ...TransitionPresets.ModalFadeTransition }}>
+      {
+        userToken ?
+          (<Stack.Screen name="AdminDrawer" component={AdminDrawerNavigator} options={{ headerShown: false }} />)
+          : (
+            <>
+              <Stack.Screen name="AdminLoginScreen" component={AdminLoginScreen} options={{ headerShown: false }} />
+              <Stack.Screen name="AdminRegisterScreen" component={AdminRegisterScreen} options={{ headerShown: false }} />
+
+            </>
+          )
+
+
+      }
+
+
 
     </Stack.Navigator>
   );

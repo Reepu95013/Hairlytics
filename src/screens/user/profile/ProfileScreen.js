@@ -10,14 +10,16 @@ import { RightArrowIcon } from '../../../iconComponents/IconComponents'
 import AppearanceModal from './ProfileComponents/AppearanceModal'
 import useLanguage from '../../../hooks/useLanguage'
 import { useTranslation } from 'react-i18next'
+import CustomAccountSwitch from '../../../components/CustomAccountSwitch'
 
-const ProfileScreen = ({navigation}) => {
+const ProfileScreen = ({ navigation }) => {
   const { changeLanguage, currentLanguage } = useLanguage();
   const { t } = useTranslation();
   const { themeColor, fontFamily, themeType } = useColorTheme();
   const styles = createStyles(themeColor, fontFamily);
   const [languageModal, setLanguageModal] = useState(false);
   const [appearanceModal, setAppearanceModal] = useState(false);
+  const [accountSwitchModal, setAccountSwitchModal] = useState(false);
 
   return (
     <Layout>
@@ -32,7 +34,7 @@ const ProfileScreen = ({navigation}) => {
 
         <View style={{ flexDirection: 'row', backgroundColor: themeColor.secondaryBackground, padding: 10, borderRadius: 10, justifyContent: 'space-between' }}>
           <Text style={styles.largeText}>{t('your_profile')}</Text>
-          <Pressable style={{ flexDirection: 'row', gap: 5 }} onPress={()=>navigation.navigate('EditProfileSreen')}>
+          <Pressable style={{ flexDirection: 'row', gap: 5 }} onPress={() => navigation.navigate('EditProfileSreen')}>
             <Text style={styles.text}>30% {t('complete')}</Text>
             <RightArrowIcon size={32} color={themeColor.iconSecondary} />
           </Pressable>
@@ -44,20 +46,26 @@ const ProfileScreen = ({navigation}) => {
             <Text style={[styles.text, { textTransform: 'capitalize', paddingHorizontal: 5 }]}>{themeType}</Text>
             <RightArrowIcon size={32} color={themeColor.iconSecondary} />
           </Pressable>
-
         </View>
+
         <View style={{ flexDirection: 'row', backgroundColor: themeColor.secondaryBackground, padding: 10, borderRadius: 10, justifyContent: 'space-between' }}>
           <Text style={styles.largeText}>{t('language')}</Text>
           <Pressable style={{ flexDirection: 'row', gap: 5 }} onPress={() => setLanguageModal(true)}>
             <Text style={[styles.text, { textTransform: 'capitalize', paddingHorizontal: 5 }]}>{currentLanguage}</Text>
             <RightArrowIcon size={32} color={themeColor.iconSecondary} />
           </Pressable>
-
         </View>
 
         <View style={{ flexDirection: 'row', backgroundColor: themeColor.secondaryBackground, padding: 10, borderRadius: 10, justifyContent: 'space-between' }}>
           <Text style={styles.largeText}>{t('your_rating')}</Text>
-          <Pressable style={{}} onPress={()=>navigation.navigate('RatingScreen')}>
+          <Pressable style={{}} onPress={() => navigation.navigate('RatingScreen')}>
+            <RightArrowIcon size={32} color={themeColor.iconSecondary} />
+          </Pressable>
+        </View>
+
+        <View style={{ flexDirection: 'row', backgroundColor: themeColor.secondaryBackground, padding: 10, borderRadius: 10, justifyContent: 'space-between' }}>
+          <Text style={styles.largeText}>{t('switch_account')}</Text>
+          <Pressable style={{}} onPress={() => setAccountSwitchModal(true)}>
             <RightArrowIcon size={32} color={themeColor.iconSecondary} />
           </Pressable>
         </View>
@@ -66,13 +74,13 @@ const ProfileScreen = ({navigation}) => {
           <Text style={[styles.largeText, { borderLeftWidth: 4, borderColor: themeColor.success, paddingLeft: 10 }]}>{t('more')}</Text>
           <View style={{ flexDirection: 'row', borderRadius: 10, justifyContent: 'space-between' }}>
             <Text style={styles.largeText}>{t('about')}</Text>
-            <Pressable style={{}} onPress={()=>navigation.navigate('AboutScreen')}>
+            <Pressable style={{}} onPress={() => navigation.navigate('AboutScreen')}>
               <RightArrowIcon size={32} color={themeColor.iconSecondary} />
             </Pressable>
           </View>
           <View style={{ flexDirection: 'row', borderRadius: 10, justifyContent: 'space-between' }}>
             <Text style={styles.largeText}>{t('send_feedback')}</Text>
-            <Pressable style={{}} onPress={()=>navigation.navigate('SendFeedbackScreen')}>
+            <Pressable style={{}} onPress={() => navigation.navigate('SendFeedbackScreen')}>
               <RightArrowIcon size={32} color={themeColor.iconSecondary} />
             </Pressable>
           </View>
@@ -93,6 +101,7 @@ const ProfileScreen = ({navigation}) => {
       </View>
       <AppearanceModal visible={appearanceModal} onClose={() => setAppearanceModal(false)} />
       <LanguageModal visible={languageModal} onClose={() => setLanguageModal(false)} />
+      <CustomAccountSwitch visible={accountSwitchModal} onClose={() => setAccountSwitchModal(false)} />
     </Layout>
   )
 }

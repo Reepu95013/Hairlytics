@@ -1,9 +1,11 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity, Pressable } from 'react-native'
 import React, { memo } from 'react'
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
+import { useLogin } from '../context/LoginContext';
 
 
 const CustomDrawer = (props) => {
+  const {signOut} = useLogin();
   return (
     <DrawerContentScrollView {...props}>
       <View style={styles.profileSection}>
@@ -18,7 +20,7 @@ const CustomDrawer = (props) => {
       {/* Drawer menu items */}
       <DrawerItemList {...props} />
 
-      <Pressable style={{borderWidth:1, padding:14}}>
+      <Pressable onPress={signOut} style={{borderWidth:1, padding:14}}>
         <Text>Log-Out</Text>
       </Pressable>
 

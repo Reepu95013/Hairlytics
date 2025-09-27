@@ -14,7 +14,10 @@ const CustomInputText = ({
     errorMessage,
     style,
     required = false,
-    maxLength
+    maxLength,
+    multiline = false,
+    numberOfLines,
+    textAlignVertical
 }) => {
     const { themeColor, fontFamily } = useColorTheme();
     const commonStyles = createStyles(themeColor, fontFamily);
@@ -52,13 +55,16 @@ const CustomInputText = ({
                 secureTextEntry={secureTextEntry}
                 keyboardType={keyboardType}
                 maxLength={maxLength}
+                multiline={multiline}
+                numberOfLines={numberOfLines}
+                textAlignVertical={textAlignVertical}
                 style={[styles.input, commonStyles.text, { backgroundColor: themeColor.secondaryBackground, borderColor: themeColor.border }, error ? styles.errorInput : null, style]}
                 onBlur={() => {
                     setTouched(true);
                     validate(value);
                 }}
             />
-            {error ? <Text style={[commonStyles.text , {color:themeColor.error}]}>{error}</Text> : null}
+            {error ? <Text style={[commonStyles.text, { color: themeColor.error }]}>{error}</Text> : null}
         </View>
     );
 };
