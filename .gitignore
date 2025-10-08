@@ -34,6 +34,13 @@ local.properties
 *.keystore
 !debug.keystore
 .kotlin/
+release/
+app-release.apk
+output-metadata.json
+app-release.dm
+
+
+
 
 # node.js
 #
