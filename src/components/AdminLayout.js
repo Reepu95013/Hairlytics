@@ -12,11 +12,11 @@ const AdminLayout = ({ children }) => {
     const { themeColor } = useColorTheme();
     return (
         <SafeAreaView style={{ backgroundColor: themeColor.background, flex: 1, }}>
-            <TouchableOpacity onPress={() => navigation.openDrawer()} style={{ borderColor: themeColor.icon, borderWidth: 1, padding: 5, borderRadius: 10, width: 50, alignItems: 'center', alignSelf: 'flex-end' }}>
+            <TouchableOpacity onPress={() => navigation.openDrawer()} style={{ borderColor: themeColor.icon, borderWidth: 1, padding: 5, borderRadius: 10, width: 50, alignItems: 'center', alignSelf: 'flex-end', marginRight:12 }}>
                 <Icon name='menu' size={32} color={themeColor.iconSecondary} />
             </TouchableOpacity>
             {/* Children Screens */}
-            <SafeAreaView style={{ flex: 1}} edges={["left", "right", "bottom"]}>
+            <SafeAreaView style={{ flex: 1, paddingHorizontal:12}} edges={["left", "right", "bottom"]}>
                 {children}
             </SafeAreaView>
 
