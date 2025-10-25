@@ -33,7 +33,7 @@ const CustomButton = ({
             {loading ? (
                 <ActivityIndicator color="#fff" />
             ) : (
-                <Text style={[commonStyles.largeText, textStyle]}>{label}</Text>
+                <Text style={[commonStyles.largeText, {color:themeColor?.primaryText},textStyle]}>{label}</Text>
             )}
         </Pressable>
     );

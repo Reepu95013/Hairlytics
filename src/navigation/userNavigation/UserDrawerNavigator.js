@@ -18,7 +18,7 @@ const UserDrawerNavigator = () => {
   const { fontFamily, themeColor } = useColorTheme();
   const { t } = useTranslation();
   return (
-    <Drawer.Navigator drawerContent={(props) => <CustomDrawer {...props} />} screenOptions={{ headerShown: false, drawerLabelStyle: { fontFamily: fontFamily, color:themeColor.primaryText} , drawerStyle:{backgroundColor:themeColor.secondaryBackground}, drawerActiveBackgroundColor:themeColor.primary }} >
+    <Drawer.Navigator drawerContent={(props) => <CustomDrawer {...props} />} screenOptions={{ headerShown: false, drawerLabelStyle: { fontFamily: fontFamily, color:themeColor.text} , drawerStyle:{backgroundColor:themeColor.secondaryBackground}, drawerActiveBackgroundColor:themeColor.primary }} >
       <Drawer.Screen name="HomeScreen" component={HomeScreen} options={{ drawerLabel: t('home') }} />
       <Drawer.Screen name="ProfileScreen" component={ProfileScreen} options={{ drawerLabel: t('profile') }} />
       <Drawer.Screen name="AppointmentScreen" component={AppointmentScreen} options={{ drawerLabel: t('appointment') }} />

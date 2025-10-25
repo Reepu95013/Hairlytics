@@ -39,6 +39,7 @@ const AdminAppointmentCards = () => {
             paddingVertical: 4,
             borderRadius: 10,
             backgroundColor: themeColor.primary,
+            borderColor:themeColor.border
           }}
         >
           <Text style={[styles.text, { color: themeColor.primaryText }]}>

@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export default function createStyles(theme, fontFamily) {
     return StyleSheet.create({
         header: {
-            color: theme.primaryText,
+            color: theme.text,
             fontSize: 18,
             fontWeight: "600",
             fontFamily: fontFamily
@@ -11,7 +11,7 @@ export default function createStyles(theme, fontFamily) {
         largeText: {
             fontWeight: "600",
             fontSize: 14,
-            color: theme.primaryText,
+            color: theme.text,
             fontFamily: fontFamily
         },
         text: {
@@ -19,6 +19,10 @@ export default function createStyles(theme, fontFamily) {
             fontSize: 13,
             color: theme.secondaryText,
             fontFamily: fontFamily
-        }
+        },
+
+        
+
+
     });
 }

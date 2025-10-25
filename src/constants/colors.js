@@ -5,18 +5,19 @@ const Colors = {
         primary: '#AA7256',
         secondary: '#C2C2C2',
         background: '#FFFFFF',
-        secondaryBackground: "#FFFFFF",
+        secondaryBackground: "#F5F5F5",
         surface: '#F9F5F1',
         surfacetText: '#0E0704',
         text: '#000000',
-        primaryText: '#000000',
+        primaryText: '#FFFFFF',
         secondaryText: '#555555',
-        border: '#737271',
+        border: '#E0E0E0',
         card: '#FFFFFF',
         icon: '#737271',
         iconSecondary: '#000000',
         error: '#FF4C4C',
         success: '#28A745',
+        buttonText:'#FFFFFF',
     },
 
     dark: {
@@ -35,6 +36,7 @@ const Colors = {
         iconSecondary: '#FFFFFF',
         error: '#FF6B6B',
         success: '#4CAF50',
+        buttonText:'#FFFFFF'
     }
 };
 
