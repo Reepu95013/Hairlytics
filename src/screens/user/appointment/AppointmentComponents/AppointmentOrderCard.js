@@ -18,7 +18,7 @@ const AppointmentOrderCard = () => {
                     <Text style={[styles.text, { color: themeColor.success }]}>7:00am</Text>
                 </View>
 
-                <Pressable onPress={() => navigation.navigate('AppointmentViewScreen')} style={{ paddingHorizontal: 10, borderWidth: 1, paddingVertical: 4, borderRadius: 10, backgroundColor: themeColor.primary }}>
+                <Pressable onPress={() => navigation.navigate('AppointmentViewScreen')} style={{ paddingHorizontal: 10, borderWidth: 1, paddingVertical: 4, borderRadius: 10, backgroundColor: themeColor.primary, borderColor:themeColor.border }}>
                     <Text style={[styles.text, { color: themeColor.primaryText }]}>View</Text>
                 </Pressable>
 

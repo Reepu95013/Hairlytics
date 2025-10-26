@@ -49,7 +49,7 @@ const BookAppointmentScreen = ({ navigation }) => {
     const footerButton = () => (
         <View style={{ paddingHorizontal: 20, marginBottom: 50 }}>
             <Pressable onPress={() => navigation.navigate('PaymentSummaryScreen')} style={{ backgroundColor: themeColor.primary, paddingVertical: 10, borderRadius: 20, marginTop: 10 }}>
-                <Text style={[styles.largeText, { textAlign: 'center' }]}>{t('next')}</Text>
+                <Text style={[styles.largeText, { textAlign: 'center', color:themeColor.primaryText }]}>{t('next')}</Text>
             </Pressable>
         </View>
     )

@@ -32,6 +32,7 @@ const AdminStackNavigator = () => {
           />
         </>
       ) : (
+        
         <>
           <Stack.Screen
             name="AdminLoginScreen"

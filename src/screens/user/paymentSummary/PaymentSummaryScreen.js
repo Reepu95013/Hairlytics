@@ -16,7 +16,7 @@ const PaymentSummaryScreen = ({ navigation }) => {
     const footerButton = () => (
         <View style={{ paddingHorizontal: 20, marginBottom: 50 }}>
             <Pressable onPress={() => navigation.navigate('CompleteBookingScreen')} style={{ backgroundColor: themeColor.primary, paddingVertical: 10, borderRadius: 20, marginTop: 10 }}>
-                <Text style={[styles.largeText, { textAlign: 'center' }]}>{t('done')}</Text>
+                <Text style={[styles.largeText, { textAlign: 'center', color:themeColor.primaryText }]}>{t('done')}</Text>
             </Pressable>
         </View>
     )

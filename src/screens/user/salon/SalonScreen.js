@@ -28,7 +28,7 @@ const SalonScreen = ({ navigation }) => {
     const salonBottom = () => (
         <View style={{paddingHorizontal:20, marginBottom:50}}>
             <Pressable onPress={()=>navigation.navigate('BookAppointmentScreen')} style={{ backgroundColor: themeColor.primary, paddingVertical: 10, borderRadius: 20, marginTop: 10 }}>
-                <Text style={[styles.largeText, { textAlign: 'center' }]}>{t('book_appointment')}</Text>
+                <Text style={[styles.largeText, { textAlign: 'center', color:themeColor.primaryText }]}>{t('book_appointment')}</Text>
             </Pressable>
         </View>
     )

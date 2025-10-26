@@ -44,20 +44,20 @@ const CustomCalendar = () => {
             {/* Header */}
             <View style={styles.header}>
                 <TouchableOpacity onPress={goToPreviousMonth}>
-                    <Text style={[styles.navBtn, { color: themeColor.primaryText }]}>◀</Text>
+                    <Text style={[styles.navBtn, { color: themeColor.primary }]}>◀</Text>
                 </TouchableOpacity>
-                <Text style={[styles.headerText, { color: themeColor.primaryText, fontFamily: fontFamily }]}>
+                <Text style={[styles.headerText, { color: themeColor.primary, fontFamily: fontFamily }]}>
                     {months[month]} {year}
                 </Text>
                 <TouchableOpacity onPress={goToNextMonth}>
-                    <Text style={[styles.navBtn, { color: themeColor.primaryText }]}>▶</Text>
+                    <Text style={[styles.navBtn, { color: themeColor.primary }]}>▶</Text>
                 </TouchableOpacity>
             </View>
 
             {/* Weekdays */}
             <View style={styles.weekDays}>
                 {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day, idx) => (
-                    <Text key={idx} style={[styles.weekDay, { fontFamily: fontFamily, color: themeColor.primaryText }]}>{day}</Text>
+                    <Text key={idx} style={[styles.weekDay, { fontFamily: fontFamily, color: themeColor.primary }]}>{day}</Text>
                 ))}
             </View>
 

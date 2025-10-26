@@ -1,5 +1,5 @@
-import { View, Text } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import { View, Text, StatusBar } from 'react-native';
+import React, { useEffect, useState } from 'react';
 import AppNavigator from './src/navigation/AppNavigator';
 import SplashScreen from './src/screens/SplashScreen';
 import './src/languages/i18n';
@@ -27,9 +27,7 @@ const App = () => {
         </LoaderProvider>
       </ThemeProvider>
     </AuthProvider>
-
   );
+};
 
-}
-
-export default App
+export default App;

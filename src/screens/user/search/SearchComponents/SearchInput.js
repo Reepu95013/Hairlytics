@@ -12,7 +12,7 @@ const SearchInput = ({ onChangeText, onSubmitEditing, value }) => {
         <View style={{ width: '100%', borderRadius: 12, borderWidth: 1, borderColor: themeColor.border, flexDirection: 'row', alignItems: 'center', gap: 20, paddingHorizontal: 10, paddingVertical: 3 }}>
             <Icon name="search" size={28} color={themeColor.iconSecondary} />
             <TextInput
-                style={{ width: '80%', color: themeColor.primaryText, fontFamily: fontFamily }}
+                style={{ width: '80%', color: themeColor.text, fontFamily: fontFamily }}
                 placeholderTextColor={themeColor.secondaryText}
                 placeholder="Search services..."
                 value={value}
