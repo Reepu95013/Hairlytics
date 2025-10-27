@@ -7,6 +7,8 @@ import AdminLoginScreen from '../../screens/admin/adminAuth/AdminLoginScreen';
 import AdminRegisterScreen from '../../screens/admin/adminAuth/AdminRegisterScreen';
 import { useLogin } from '../../context/LoginContext';
 import AdminAppointmentViewScreen from '../../screens/admin/adminAppointment/AdminAppointmentViewScreen';
+import AdminAddServiceScreen from '../../screens/admin/adminService/AdminAddServiceScreen';
+import AdminEditServiceScreen from '../../screens/admin/adminService/AdminEditServiceScreen';
 
 const Stack = createStackNavigator();
 
@@ -28,6 +30,16 @@ const AdminStackNavigator = () => {
           <Stack.Screen
             name="AdminAppointmentViewScreen"
             component={AdminAppointmentViewScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="AdminAddServiceScreen"
+            component={AdminAddServiceScreen}
+            options={{ headerShown: false }}
+          />
+           <Stack.Screen
+            name="AdminEditServiceScreen"
+            component={AdminEditServiceScreen}
             options={{ headerShown: false }}
           />
         </>
