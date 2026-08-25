@@ -16,7 +16,7 @@ const SecondLayout = ({ children, screenName, CustomHeader, CustomBottom }) => {
   const { themeColor, fontFamily } = useColorTheme();
   const navigation = useNavigation();
   const styles = createStyles(themeColor, fontFamily);
- 
+
   return (
     <SafeAreaView
       style={[
@@ -49,9 +49,10 @@ const SecondLayout = ({ children, screenName, CustomHeader, CustomBottom }) => {
       <FlatList
         data={[1]}
         renderItem={() => <View style={customstyles.content}>{children}</View>}
-        ListHeaderComponent={ CustomHeader && <CustomHeader/>}
+        ListHeaderComponent={CustomHeader && <CustomHeader />}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingBottom: 150 }}
+        nestedScrollEnabled={true} 
       />
 
       {CustomBottom && <CustomBottom />}
