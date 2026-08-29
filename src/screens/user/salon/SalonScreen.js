@@ -7,10 +7,11 @@ import createStyles from '../../../constants/styles'
 import CustomServiceCardList from '../../../components/CustomServiceCardList'
 import CustomPhotoCardList from '../../../components/CustomPhotoCardList'
 import { useTranslation } from 'react-i18next'
+import { useSelector } from 'react-redux'
 
 
 const SalonScreen = ({ navigation }) => {
-    const { themeColor, fontFamily } = useColorTheme();
+    const { themeColor, fontFamily } = useSelector(state => state.theme);
       const { t } = useTranslation();
     const styles = createStyles(themeColor, fontFamily);
 

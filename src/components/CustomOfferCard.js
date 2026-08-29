@@ -1,13 +1,14 @@
 import { View, Text, ImageBackground, Pressable } from 'react-native'
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next';
-import { useColorTheme } from '../context/ThemeContext';
+
 import createStyles from '../constants/styles';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { useSelector } from 'react-redux';
 
 const CustomOfferCard = () => {
     const { t } = useTranslation();
-    const { themeColor, fontFamily } = useColorTheme();
+    const { themeColor, fontFamily } = useSelector(state => state.theme);
     const styles = createStyles(themeColor, fontFamily);
     return (
         <View style={{ width: 280, height: 'auto' }}>

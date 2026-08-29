@@ -6,10 +6,11 @@ import { DATA } from '../../../utils/dataStore'
 import { useTranslation } from 'react-i18next'
 import { useColorTheme } from '../../../context/ThemeContext'
 import createStyles from '../../../constants/styles'
+import { useSelector } from 'react-redux'
 
 const SearchScreen = ({ navigation }) => {
     const { t } = useTranslation();
-    const { themeColor, fontFamily } = useColorTheme();
+    const { themeColor, fontFamily } = useSelector(state => state.theme);
     const styles = createStyles(themeColor, fontFamily);
     const [search, setSearch] = useState("");
     const [filteredData, setFilteredData] = useState(DATA);

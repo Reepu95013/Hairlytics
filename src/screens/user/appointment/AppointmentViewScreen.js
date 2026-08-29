@@ -5,9 +5,10 @@ import CustomCard from '../../../components/CustomCard'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { useColorTheme } from '../../../context/ThemeContext'
 import createStyles from '../../../constants/styles'
+import { useSelector } from 'react-redux'
 
 const AppointmentViewScreen = () => {
-    const { themeColor, fontFamily } = useColorTheme();
+    const { themeColor, fontFamily } = useSelector(state => state.theme);
     const styles = createStyles(themeColor, fontFamily);
     const [paymethodMethod, setPaymentMethod] = useState('cash');
     return (

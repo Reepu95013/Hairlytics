@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { Pressable, Text, StyleSheet, ActivityIndicator } from "react-native";
-import { useColorTheme } from "../context/ThemeContext";
 import createStyles from "../constants/styles";
+import { useSelector } from "react-redux";
 
 const CustomButton = ({
     label,
@@ -13,7 +13,7 @@ const CustomButton = ({
     style,
     textStyle,
 }) => {
-    const { themeColor, fontFamily } = useColorTheme();
+    const { themeColor, fontFamily } = useSelector(state => state.theme);
     const commonStyles = createStyles(themeColor, fontFamily);
     // Run validation rules
     const isValid = validationRules.every((rule) => rule(value));

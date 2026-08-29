@@ -1,7 +1,7 @@
 import { View, Text, Pressable, TouchableOpacity, Image, ImageBackground } from 'react-native'
 import React from 'react'
 import SecondLayout from '../../../components/SecondLayout'
-import { useColorTheme } from '../../../context/ThemeContext';
+import { useDispatch, useSelector } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import createStyles from '../../../constants/styles';
 import { useNavigation } from '@react-navigation/native';
@@ -9,7 +9,7 @@ import SearchSmallItemCard from './SearchComponents/SearchSmallItemCard';
 import CustomItemCardList from '../../../components/CustomItemCardList';
 
 const SearchResultScreen = ({ route }) => {
-    const { themeColor, fontFamily } = useColorTheme();
+    const { themeColor, fontFamily } = useSelector(state => state.theme);
     const styles = createStyles(themeColor, fontFamily);
     const { query } = route.params;
     const navigation = useNavigation();

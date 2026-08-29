@@ -1,10 +1,11 @@
 import { View, Text, Image } from 'react-native'
 import React, { memo } from 'react'
-import { useColorTheme } from '../context/ThemeContext';
+
 import createStyles from '../constants/styles';
+import { useSelector } from 'react-redux';
 
 const CustomPhotoCard = () => {
-    const { themeColor, fontFamily } = useColorTheme();
+    const { themeColor, fontFamily } = useSelector(state => state.theme);
     const styles = createStyles(themeColor, fontFamily);
     return (
         <View style={{ width: 300, height: 200, backgroundColor: themeColor.surface, borderRadius: 12, alignItems: 'center', justifyContent: 'center', }}>

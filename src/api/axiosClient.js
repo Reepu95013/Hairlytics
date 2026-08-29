@@ -1,0 +1,11 @@
+import axios from 'axios';
+
+const axiosClient = axios.create({
+  baseURL: 'https://your-api-url.com/api',
+  timeout: 15000,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+export default axiosClient;

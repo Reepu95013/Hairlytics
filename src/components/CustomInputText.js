@@ -2,6 +2,7 @@ import { View, TextInput, Text, StyleSheet } from "react-native";
 import React, { memo, useState } from 'react'
 import { useColorTheme } from "../context/ThemeContext";
 import createStyles from "../constants/styles";
+import { useSelector } from "react-redux";
 
 const CustomInputText = ({
     label,
@@ -19,7 +20,7 @@ const CustomInputText = ({
     numberOfLines,
     textAlignVertical
 }) => {
-    const { themeColor, fontFamily } = useColorTheme();
+    const { themeColor, fontFamily } = useSelector(state => state.theme);
     const commonStyles = createStyles(themeColor, fontFamily);
     const [touched, setTouched] = useState(false);
     const [error, setError] = useState("");

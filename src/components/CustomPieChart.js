@@ -1,13 +1,14 @@
 import React from 'react';
 import { View, Dimensions, Text, StyleSheet } from 'react-native';
 import { PieChart } from 'react-native-chart-kit';
-import { useColorTheme } from '../context/ThemeContext';
+
 import createStyles from '../constants/styles';
+import { useSelector } from 'react-redux';
 
 const screenWidth = Dimensions.get('window').width;
 
 const CustomPieChart = () => {
-  const { themeColor, fontFamily } = useColorTheme();
+  const { themeColor, fontFamily } = useSelector(state => state.theme);
   const styles = createStyles(themeColor, fontFamily);
   const data = [
     {

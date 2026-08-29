@@ -1,13 +1,14 @@
 import { View, Text, SafeAreaView, StyleSheet, FlatList } from 'react-native';
 import React, { memo } from 'react';
 import CustomBottomTabs from './CustomBottomTabs';
-import { useColorTheme } from '../context/ThemeContext';
+
 import CustomHeader from './CustomHeader';
 import { slides } from '../utils/dataStore';
 import { key } from '../utils/key';
+import { useSelector } from 'react-redux';
 
 const Layout = ({ children }) => {
-  const { themeColor, themeType } = useColorTheme();
+  const { themeColor, themeType } = useSelector(state => state.theme);
   return (
     <SafeAreaView
       style={[styles.container, { backgroundColor: themeColor.background }]}

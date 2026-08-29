@@ -2,7 +2,7 @@ import { View, Text, Pressable, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import AdminLayout from '../../../components/AdminLayout'
 import { useTranslation } from 'react-i18next';
-import { useColorTheme } from '../../../context/ThemeContext';
+import { useDispatch, useSelector } from 'react-redux';
 import createStyles from '../../../constants/styles';
 import { RightArrowIcon } from '../../../iconComponents/IconComponents';
 import useLanguage from '../../../hooks/useLanguage';
@@ -13,7 +13,7 @@ import CustomAccountSwitch from '../../../components/CustomAccountSwitch';
 const AdminSettingScreen = () => {
   const { t } = useTranslation();
   const { changeLanguage, currentLanguage } = useLanguage();
-  const { themeColor, fontFamily, themeType } = useColorTheme();
+  const { themeColor, fontFamily, themeType } = useSelector(state => state.theme);
   const commonStyles = createStyles(themeColor, fontFamily);
   const [languageModal, setLanguageModal] = useState(false);
   const [appearanceModal, setAppearanceModal] = useState(false);

@@ -2,12 +2,13 @@ import { View, Text, SafeAreaView, TouchableOpacity } from 'react-native'
 import React, { memo } from 'react'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { useNavigation } from '@react-navigation/native';
-import { useColorTheme } from '../context/ThemeContext';
+
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
 const CustomHeader = () => {
     const { t } = useTranslation();
-    const { themeColor,fontFamily } = useColorTheme();
+    const { themeColor,fontFamily } = useSelector(state => state.theme);
     const navigation = useNavigation();
     return (
         <View style={{ marginTop: 60, marginBottom: 12, marginHorizontal: 16, flexDirection: 'row', gap: 16 }}>

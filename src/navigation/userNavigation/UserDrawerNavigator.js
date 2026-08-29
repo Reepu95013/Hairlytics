@@ -7,12 +7,12 @@ import CustomDrawer from '../../components/CustomDrawer';
 import HomeScreen from '../../screens/user/home/HomeScreen';
 import { useTranslation } from 'react-i18next';
 import WishlistScreen from '../../screens/user/wishlist/WishlistScreen';
-import { useColorTheme } from '../../context/ThemeContext';
+import { useSelector } from 'react-redux';
 
 const Drawer = createDrawerNavigator();
 
 const UserDrawerNavigator = () => {
-  const { fontFamily, themeColor } = useColorTheme();
+  const { fontFamily, themeColor } = useSelector(state => state.theme);
   const { t } = useTranslation();
   return (
     <Drawer.Navigator

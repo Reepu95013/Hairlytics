@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import React, { useState } from 'react';
 import SecondLayout from '../../../components/SecondLayout';
-import { useColorTheme } from '../../../context/ThemeContext';
+import { useDispatch, useSelector } from 'react-redux';
 import createStyles from '../../../constants/styles';
 import CustomInputText from '../../../components/CustomInputText';
 import CustomButton from '../../../components/CustomButton';
@@ -21,7 +21,7 @@ import {
 import CustomImageViewerModal from '../../../components/CustomImageViewerModal';
 
 const AdminAddServiceScreen = () => {
-  const { themeColor, fontFamily } = useColorTheme();
+  const { themeColor, fontFamily } = useSelector(state => state.theme);
   const styles = createStyles(themeColor, fontFamily);
   const [descriptionList, setDescriptionList] = useState([]);
   const [description, setDescription] = useState('');

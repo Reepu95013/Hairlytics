@@ -1,10 +1,11 @@
 import { View, Text, Pressable } from 'react-native'
 import React, { memo } from 'react'
-import { useColorTheme } from '../context/ThemeContext';
+
 import createStyles from '../constants/styles';
+import { useSelector } from 'react-redux';
 
 const CustomCard = () => {
-    const { themeColor, fontFamily } = useColorTheme();
+    const { themeColor, fontFamily } = useSelector(state => state.theme);
     const styles = createStyles(themeColor, fontFamily);
     return (
         <View style={{ flexDirection: 'row', gap: 10 }}>

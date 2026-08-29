@@ -1,12 +1,13 @@
 import { View, Text, Pressable } from 'react-native'
 import React, { memo, useState } from 'react'
-import { useColorTheme } from '../../../../context/ThemeContext';
+
 import createStyles from '../../../../constants/styles';
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { useNavigation } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
 
 const AppointmentServiceCard = () => {
-    const { themeColor, fontFamily } = useColorTheme();
+    const { themeColor, fontFamily } = useSelector(state => state.theme);
     const styles = createStyles(themeColor, fontFamily);
     const [selectAllToggle, setSelectAllToggle] = useState(false);
     const navigation=useNavigation();

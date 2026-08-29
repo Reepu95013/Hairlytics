@@ -1,14 +1,17 @@
 import { View, Text, Modal, Pressable } from 'react-native'
 import React, { memo, useState } from 'react'
-import { useColorTheme } from '../../../../context/ThemeContext';
+
 import createStyles from '../../../../constants/styles';
 import { CloseIcon, RadioCheckIcon, RadioUnCheckIcon } from '../../../../iconComponents/IconComponents';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleTheme } from '../../../../redux/app/themeSlice';
 
 
 const AppearanceModal = ({ visible, onClose }) => {
     const { t } = useTranslation();
-    const { themeColor, fontFamily, toggleTheme, themeType } = useColorTheme();
+    const dispatch = useDispatch();
+    const { themeColor, fontFamily, themeType } = useSelector(state => state.theme);
     const styles = createStyles(themeColor, fontFamily);
     const [appearance, setAppearance] = useState('dark');
     return (
@@ -45,7 +48,7 @@ const AppearanceModal = ({ visible, onClose }) => {
 
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 20, }}>
                         <Text style={styles.largeText}>{t('dark')}</Text>
-                        <Pressable onPress={toggleTheme}>
+                        <Pressable onPress={()=>dispatch(toggleTheme())}>
                             {themeType === 'dark' ? <RadioCheckIcon size={28} color={themeColor.primary} /> : <RadioUnCheckIcon size={28} color={themeColor.primary} />}
                         </Pressable>
 
@@ -53,7 +56,7 @@ const AppearanceModal = ({ visible, onClose }) => {
 
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 20, }}>
                         <Text style={styles.largeText}>{t('light')}</Text>
-                        <Pressable onPress={toggleTheme}>
+                        <Pressable onPress={()=>dispatch(toggleTheme())}>
                             {themeType === 'light' ? <RadioCheckIcon size={28} color={themeColor.primary} /> : <RadioUnCheckIcon size={28} color={themeColor.primary} />}
                         </Pressable>
 

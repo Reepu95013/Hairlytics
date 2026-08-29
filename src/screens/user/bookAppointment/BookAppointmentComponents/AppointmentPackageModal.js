@@ -1,10 +1,11 @@
 import { View, Text, Modal, TouchableWithoutFeedback, StyleSheet, Pressable, FlatList } from 'react-native'
 import React, { memo } from 'react'
-import { useColorTheme } from '../../../../context/ThemeContext';
+
 import createStyles from '../../../../constants/styles';
+import { useSelector } from 'react-redux';
 
 const AppointmentPackageModal = ({ visible, setVisible }) => {
-    const { themeColor, fontFamily } = useColorTheme();
+    const { themeColor, fontFamily } = useSelector(state => state.theme);
     const styles = createStyles(themeColor, fontFamily);
 
     const renderItem = ({ item }) => (

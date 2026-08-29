@@ -1,9 +1,10 @@
 import React, { memo, useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Alert } from "react-native";
-import { useColorTheme } from "../context/ThemeContext";
+import { useSelector } from "react-redux";
+
 
 const CustomCalendar = () => {
-    const { themeColor, fontFamily } = useColorTheme();
+    const { themeColor, fontFamily } = useSelector(state => state.theme);
     const [currentDate, setCurrentDate] = useState(new Date());
     const today = new Date();
 

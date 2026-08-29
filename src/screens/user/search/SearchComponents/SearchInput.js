@@ -1,11 +1,12 @@
 import { View, Text, TextInput } from 'react-native'
 import React, { memo } from 'react'
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { useColorTheme } from '../../../../context/ThemeContext';
+
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
 const SearchInput = ({ onChangeText, onSubmitEditing, value }) => {
-    const { themeColor, fontFamily } = useColorTheme();
+    const { themeColor, fontFamily } = useSelector(state => state.theme);
     const { t } = useTranslation();
     return (
 

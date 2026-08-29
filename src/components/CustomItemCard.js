@@ -2,13 +2,14 @@ import { View, Text, ImageBackground, Pressable } from 'react-native'
 import React, { memo } from 'react'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useTranslation } from 'react-i18next';
-import { useColorTheme } from '../context/ThemeContext';
+
 import createStyles from '../constants/styles';
 import { useNavigation } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
 
 const CustomItemCard = ({ width, height }) => {
     const { t } = useTranslation();
-    const { themeColor, fontFamily } = useColorTheme();
+    const { themeColor, fontFamily } = useSelector(state => state.theme);
     const styles = createStyles(themeColor, fontFamily);
     const navigation = useNavigation();
     return (

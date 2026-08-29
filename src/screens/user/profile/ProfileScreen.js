@@ -11,11 +11,12 @@ import AppearanceModal from './ProfileComponents/AppearanceModal'
 import useLanguage from '../../../hooks/useLanguage'
 import { useTranslation } from 'react-i18next'
 import CustomAccountSwitch from '../../../components/CustomAccountSwitch'
+import { useSelector } from 'react-redux'
 
 const ProfileScreen = ({ navigation }) => {
   const { changeLanguage, currentLanguage } = useLanguage();
   const { t } = useTranslation();
-  const { themeColor, fontFamily, themeType } = useColorTheme();
+  const { themeColor, fontFamily, themeType } = useSelector(state => state.theme);
   const styles = createStyles(themeColor, fontFamily);
   const [languageModal, setLanguageModal] = useState(false);
   const [appearanceModal, setAppearanceModal] = useState(false);

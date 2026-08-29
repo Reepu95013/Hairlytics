@@ -5,22 +5,21 @@ import {
 import AdminDrawerNavigator from './AdminDrawerNavigator';
 import AdminLoginScreen from '../../screens/admin/adminAuth/AdminLoginScreen';
 import AdminRegisterScreen from '../../screens/admin/adminAuth/AdminRegisterScreen';
-import { useLogin } from '../../context/LoginContext';
 import AdminAppointmentViewScreen from '../../screens/admin/adminAppointment/AdminAppointmentViewScreen';
 import AdminAddServiceScreen from '../../screens/admin/adminService/AdminAddServiceScreen';
 import AdminEditServiceScreen from '../../screens/admin/adminService/AdminEditServiceScreen';
+import { useSelector } from 'react-redux';
 
 const Stack = createStackNavigator();
 
 const AdminStackNavigator = () => {
-  const { userToken } = useLogin();
-
+  const { token} = useSelector(state => state.auth);
   return (
     <Stack.Navigator
-      initialRouteName={userToken ? 'AdminDrawer' : 'AdminLoginScreen'}
+      initialRouteName={token!=null ? 'AdminDrawer' : 'AdminLoginScreen'}
       screenOptions={{ ...TransitionPresets.ModalFadeTransition }}
     >
-      {userToken ? (
+      {token !=null ? (
         <>
           <Stack.Screen
             name="AdminDrawer"

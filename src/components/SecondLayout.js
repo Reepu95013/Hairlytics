@@ -7,13 +7,14 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React, { memo } from 'react';
-import { useColorTheme } from '../context/ThemeContext';
+
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/native';
 import createStyles from '../constants/styles';
+import { useSelector } from 'react-redux';
 
 const SecondLayout = ({ children, screenName, CustomHeader, CustomBottom }) => {
-  const { themeColor, fontFamily } = useColorTheme();
+  const { themeColor, fontFamily } = useSelector(state => state.theme);
   const navigation = useNavigation();
   const styles = createStyles(themeColor, fontFamily);
 

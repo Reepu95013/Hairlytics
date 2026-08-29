@@ -1,18 +1,19 @@
 import { View, Text, Modal, Pressable } from 'react-native'
 import React, { memo, useState } from 'react'
-import { useColorTheme } from '../../../../context/ThemeContext';
+
 import createStyles from '../../../../constants/styles';
 import { CloseIcon, RadioCheckIcon, RadioUnCheckIcon } from '../../../../iconComponents/IconComponents';
 import useLanguage from '../../../../hooks/useLanguage';
 import { storage } from '../../../../utils/storage';
 import { key } from '../../../../utils/key';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
 
 const LanguageModal = ({ visible, onClose }) => {
     const { t } = useTranslation();
     const { changeLanguage, currentLanguage } = useLanguage();
-    const { themeColor, fontFamily } = useColorTheme();
+    const { themeColor, fontFamily } = useSelector(state => state.theme);
     const styles = createStyles(themeColor, fontFamily);
     const [language, setLanguage] = useState('english');
 

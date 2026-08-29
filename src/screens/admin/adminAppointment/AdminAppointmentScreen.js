@@ -2,13 +2,13 @@ import { View, Text, Pressable, FlatList } from 'react-native';
 import React, { useState } from 'react';
 import AdminLayout from '../../../components/AdminLayout';
 import AdminAppointmentCards from './AdminAppointmentComponents/AdminAppointmentCards';
-import { useColorTheme } from '../../../context/ThemeContext';
 import createStyles from '../../../constants/styles';
+import { useSelector } from 'react-redux';
 
 const tabs = ['Completed', 'In Progress', 'UpComming'];
 
 const AdminAppointmentScreen = () => {
-  const { themeColor, fontFamily } = useColorTheme();
+  const { themeColor, fontFamily } = useSelector(state => state.theme);
   const styles = createStyles(themeColor, fontFamily);
   const [selectTab, setSelectTab] = useState('Completed');
 

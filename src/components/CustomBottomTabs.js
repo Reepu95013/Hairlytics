@@ -2,14 +2,15 @@ import React, { memo } from 'react';
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { useColorTheme } from '../context/ThemeContext';
+
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
 const CustomBottomTabs = () => {
   const { t } = useTranslation();
   const navigation = useNavigation();
   const route = useRoute();
-  const { themeColor, fontFamily } = useColorTheme();
+  const { themeColor, fontFamily } = useSelector(state => state.theme);
 
   const tabs = [
     { name: t('home'), screen: 'HomeScreen', icon: 'home' },

@@ -4,18 +4,17 @@ import {
     SafeAreaView
 } from 'react-native';
 import { slides } from '../utils/dataStore';
-import { useColorTheme } from '../context/ThemeContext';
+
 import { useTranslation } from 'react-i18next';
-import { storage } from '../utils/storage';
-import { key } from '../utils/key';
-import { useAuth } from '../context/AuthContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { setOnBoardingStatus } from '../redux/auth/authSlice';
 
 const { width, height } = Dimensions.get('window');
 
 const OnboardingScreen = () => {
-    const { setOnBoardingStatus } = useAuth();
+    const dispatch = useDispatch();
     const { t } = useTranslation();
-    const { themeColor, fontFamily } = useColorTheme();
+    const { themeColor, fontFamily } = useSelector(state => state.theme);
     const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
     const ref = useRef(null);
 
@@ -42,8 +41,7 @@ const OnboardingScreen = () => {
     };
 
     const onClickGetStartedButton = async () => {
-        await storage.setItem(key.STORAGE_KEYS.ONBOARDING_STATUS, true);
-        setOnBoardingStatus(true);
+       dispatch(setOnBoardingStatus(true));
     }
 
     const Footer = () => {

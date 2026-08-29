@@ -5,11 +5,14 @@ import Layout from '../../../components/Layout'
 import useLanguage from '../../../hooks/useLanguage'
 import { key } from '../../../utils/key'
 import { storage } from '../../../utils/storage'
-import { useAuth } from '../../../context/AuthContext'
+
 
 const SettingScreen = () => {
-  const { switchToAdmin, switchToUser } = useAuth();
+  
+  
+
   const { changeLanguage } = useLanguage();
+
   const onChnageLanguage = async (lang) => {
     changeLanguage(lang);
     await storage.setItem(key.STORAGE_KEYS.LANGUAGE, lang);
@@ -25,8 +28,8 @@ const SettingScreen = () => {
         </TouchableOpacity>
 
         
-          <Button title="Switch to Admin" onPress={switchToAdmin} />
-          <Button title="Switch to User" onPress={switchToUser} />
+          <Button title="Switch to Admin" onPress={()=>console.log("hi")} />
+          <Button title="Switch to User" onPress={()=>console.log('jhi')} />
         
       </View>
 

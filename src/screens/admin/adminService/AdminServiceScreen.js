@@ -2,12 +2,12 @@ import { View, Text, FlatList } from 'react-native';
 import React from 'react';
 import AdminLayout from '../../../components/AdminLayout';
 import CustomButton from '../../../components/CustomButton';
-import { useColorTheme } from '../../../context/ThemeContext';
+import { useDispatch, useSelector } from 'react-redux';
 import createStyles from '../../../constants/styles';
 import AdminServiceCard from './AdminServiceComponents/AdminServiceCard';
 
 const AdminServiceScreen = ({ navigation }) => {
-  const { themeColor, fontFamily } = useColorTheme();
+  const { themeColor, fontFamily } = useSelector(state => state.theme);
   const styles = createStyles(themeColor, fontFamily);
 
   const renderItem = ({ item }) => <AdminServiceCard />;

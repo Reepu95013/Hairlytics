@@ -10,7 +10,7 @@ import {
 import React, { useState } from 'react';
 import SecondLayout from '../../../components/SecondLayout';
 import { useTranslation } from 'react-i18next';
-import { useColorTheme } from '../../../context/ThemeContext';
+import { useDispatch, useSelector } from 'react-redux';
 import createStyles from '../../../constants/styles';
 import CustomInputText from '../../../components/CustomInputText';
 import CustomButton from '../../../components/CustomButton';
@@ -18,7 +18,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 
 const AdminRegisterScreen = () => {
   const { t } = useTranslation();
-  const { themeColor, fontFamily } = useColorTheme();
+  const { themeColor, fontFamily } = useSelector(state => state.theme);
   const commonStyles = createStyles(themeColor, fontFamily);
   const [step, setStep] = useState(1);
 

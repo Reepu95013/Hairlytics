@@ -1,11 +1,12 @@
 import { View, Text, Image } from 'react-native'
 import React, { memo } from 'react'
-import { useColorTheme } from '../context/ThemeContext';
+
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
 const CustomCategoryCard = () => {
     const { t } = useTranslation();
-    const { themeColor, fontFamily } = useColorTheme();
+    const { themeColor, fontFamily } = useSelector(state => state.theme);
     return (
         <View style={{ width: 68, height: "auto", gap: 2 }}>
             <View style={{ width: 68, height: 68, borderWidth: 1, borderColor: 'white', borderRadius: 10 }}>

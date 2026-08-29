@@ -1,7 +1,7 @@
 import { View, Text, Pressable, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import CustomHeaderLayout from '../../../components/CustomHeaderLayout'
-import { useColorTheme } from '../../../context/ThemeContext';
+import { useDispatch, useSelector } from 'react-redux';
 import createStyles from '../../../constants/styles';
 import CustomCard from '../../../components/CustomCard';
 import Icon from 'react-native-vector-icons/MaterialIcons'
@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 
 const PaymentSummaryScreen = ({ navigation }) => {
     const { t } = useTranslation();
-    const { themeColor, fontFamily } = useColorTheme();
+    const { themeColor, fontFamily } = useSelector(state => state.theme);
     const styles = createStyles(themeColor, fontFamily);
     const [paymethodMethod, setPaymentMethod] = useState('cash');
 

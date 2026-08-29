@@ -1,11 +1,12 @@
 import { View, Text } from 'react-native';
 import React, { useEffect, useState } from 'react';
-import { useColorTheme } from '../../../../context/ThemeContext';
+
 import createStyles from '../../../../constants/styles';
+import { useSelector } from 'react-redux';
 
 
 const AdminDashboardCard = ({data}) => {
-  const { themeColor, fontFamily } = useColorTheme();
+  const { themeColor, fontFamily } = useSelector(state => state.theme);
   const styles = createStyles(themeColor, fontFamily);
 
   return (

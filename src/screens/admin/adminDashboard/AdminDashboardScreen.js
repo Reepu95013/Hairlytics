@@ -2,14 +2,14 @@ import { View, Text, Button, Pressable } from 'react-native';
 import React, { memo, useEffect, useState } from 'react';
 import AdminLayout from '../../../components/AdminLayout';
 import CustomButton from '../../../components/CustomButton';
-import { useColorTheme } from '../../../context/ThemeContext';
+import { useDispatch, useSelector } from 'react-redux';
 import createStyles from '../../../constants/styles';
 import AdminDashboardCard from './AdminDashboardComponents/AdminDashboardCard';
 import CustomPieChart from '../../../components/CustomPieChart';
 import { barberDashboardData } from '../../../utils/dataStore';
 
 const AdminDashboardScreen = () => {
-  const { themeColor, fontFamily } = useColorTheme();
+  const { themeColor, fontFamily } = useSelector(state => state.theme);
   const styles = createStyles(themeColor, fontFamily);
 
   return (

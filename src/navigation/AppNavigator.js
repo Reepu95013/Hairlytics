@@ -1,18 +1,14 @@
 import { NavigationContainer } from '@react-navigation/native';
 import UserStackNavigator from './userNavigation/UserStackNavigator';
-import { useAuth } from '../context/AuthContext';
-import ChooseAccount from '../screens/ChooseAccount';
-import OnboardingScreen from '../screens/OnboardingScreen';
 import { key } from '../utils/key';
 import AdminStackNavigator from './adminNavigation/AdminStackNavigator';
-import { useColorTheme } from '../context/ThemeContext';
 import { StatusBar } from 'react-native';
+import { useSelector } from 'react-redux';
 
 function AppNavigator() {
-  const { isAdmin, onBoardingStatus, chooseAccountStatus } = useAuth();
-  const { themeColor, themeType } = useColorTheme();
+  const { role } = useSelector(state => state.auth);
+  const { themeType} = useSelector(state => state.theme);
 
-  console.log('app navigatoru', isAdmin, onBoardingStatus, chooseAccountStatus);
   return (
     <NavigationContainer>
       <StatusBar
@@ -23,11 +19,7 @@ function AppNavigator() {
         }
       />
 
-      {onBoardingStatus !== true ? (
-        <OnboardingScreen />
-      ) : chooseAccountStatus !== true ? (
-        <ChooseAccount />
-      ) : isAdmin === key.STORAGE_KEYS.ADMIN ? (
+      {role === key.STORAGE_KEYS.ADMIN ? (
         <AdminStackNavigator />
       ) : (
         <UserStackNavigator />

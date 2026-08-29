@@ -8,11 +8,12 @@ import CustomCalendarModal from '../../../components/CustomCalendarModal'
 import AppointmentPackageModal from './BookAppointmentComponents/AppointmentPackageModal'
 import AppointmentServiceCard from './BookAppointmentComponents/AppointmentServiceCard'
 import { useTranslation } from 'react-i18next'
+import { useSelector } from 'react-redux'
 
 
 const BookAppointmentScreen = ({ navigation }) => {
     const { t } = useTranslation();
-    const { themeColor, fontFamily } = useColorTheme();
+    const { themeColor, fontFamily } = useSelector(state => state.theme);
     const styles = createStyles(themeColor, fontFamily);
     const [selectAllToggle, setSelectAllToggle] = useState(false);
     const [calendarVisible, setCalendarVisible] = useState(false);

@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect, memo } from 'react';
 import { View, Text, FlatList, Image, StyleSheet, Dimensions } from 'react-native';
-import { useColorTheme } from '../context/ThemeContext';
+import { useSelector } from 'react-redux';
+
 
 const { width } = Dimensions.get('window');
 
@@ -12,7 +13,7 @@ const images = [
 
 const CustomAutoSlider = () => {
     const flatListRef = useRef(null);
-    const { themeColor, fontFamily } = useColorTheme();
+    const { themeColor, fontFamily } = useSelector(state => state.theme);
     const [currentIndex, setCurrentIndex] = useState(0);
 
     // Auto-slide effect

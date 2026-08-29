@@ -2,14 +2,14 @@ import { View, Text, Image } from 'react-native'
 import React from 'react'
 import SecondLayout from '../../../components/SecondLayout'
 import { useTranslation } from 'react-i18next';
-import { useColorTheme } from '../../../context/ThemeContext';
+import { useDispatch, useSelector } from 'react-redux';
 import createStyles from '../../../constants/styles';
 import CustomInputText from '../../../components/CustomInputText';
 import CustomButton from '../../../components/CustomButton';
 
 const SignupScreen = ({ navigation }) => {
   const { t } = useTranslation();
-  const { themeColor, fontFamily } = useColorTheme();
+  const { themeColor, fontFamily } = useSelector(state => state.theme);
   const commonStyles = createStyles(themeColor, fontFamily);
   return (
     <SecondLayout screenName={t('register')}>

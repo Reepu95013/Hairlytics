@@ -6,10 +6,11 @@ import { useColorTheme } from '../../../context/ThemeContext'
 import createStyles from '../../../constants/styles'
 import { CommonActions, useNavigation } from '@react-navigation/native'
 import { useTranslation } from 'react-i18next'
+import { useSelector } from 'react-redux'
 
 const CompleteBookingScreen = () => {
   const { t } = useTranslation();
-  const { themeColor, fontFamily } = useColorTheme();
+  const { themeColor, fontFamily } = useSelector(state => state.theme);
   const styles = createStyles(themeColor, fontFamily);
   const navigation = useNavigation();
 

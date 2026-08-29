@@ -1,12 +1,13 @@
 import { View, Text, Pressable, Alert } from 'react-native'
 import React, { memo } from 'react'
-import { useColorTheme } from '../context/ThemeContext';
+
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useTranslation } from 'react-i18next';
 import { useNavigation } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
 
 const CustomSearchBar = () => {
-    const { themeColor, fontFamily } = useColorTheme();
+    const { themeColor, fontFamily } = useSelector(state => state.theme);
     const { t } = useTranslation();
     const navigation = useNavigation();
     return (

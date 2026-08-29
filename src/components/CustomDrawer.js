@@ -1,11 +1,22 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity, Pressable } from 'react-native'
-import React, { memo } from 'react'
-import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
-import { useLogin } from '../context/LoginContext';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  Pressable,
+} from 'react-native';
+import React, { memo } from 'react';
+import {
+  DrawerContentScrollView,
+  DrawerItemList,
+} from '@react-navigation/drawer';
+import { useDispatch } from 'react-redux';
+import { logout } from '../redux/auth/authSlice';
 
 
-const CustomDrawer = (props) => {
-  const {signOut} = useLogin();
+const CustomDrawer = props => {
+  const dispatch = useDispatch();
   return (
     <DrawerContentScrollView {...props}>
       <View style={styles.profileSection}>
@@ -20,16 +31,14 @@ const CustomDrawer = (props) => {
       {/* Drawer menu items */}
       <DrawerItemList {...props} />
 
-      <Pressable onPress={signOut} style={{borderWidth:1, padding:14}}>
+      <Pressable onPress={()=>dispatch(logout())} style={{ borderWidth: 1, padding: 14 }}>
         <Text>Log-Out</Text>
       </Pressable>
-
     </DrawerContentScrollView>
   );
-}
+};
 
 export default memo(CustomDrawer);
-
 
 const styles = StyleSheet.create({
   profileSection: {

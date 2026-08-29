@@ -10,11 +10,12 @@ import AdminProfileScreen from '../../screens/admin/adminProfile/AdminProfileScr
 import AdminDashboardScreen from '../../screens/admin/adminDashboard/AdminDashboardScreen';
 import PrivacyPolicyScreen from '../../screens/PrivacyPolicyScreen';
 import { useLogin } from '../../context/LoginContext';
+import { useSelector } from 'react-redux';
 
 const AdminDrawer = createDrawerNavigator();
 
 const AdminDrawerNavigator = () => {
-  const { fontFamily, themeColor } = useColorTheme();
+  const { fontFamily, themeColor } = useSelector(state => state.theme);
   const { t } = useTranslation();
 
   return (

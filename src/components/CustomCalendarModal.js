@@ -1,10 +1,11 @@
 import React, { memo } from 'react';
 import { View, Modal, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import CustomCalendar from './CustomCalendar';
-import { useColorTheme } from '../context/ThemeContext';
+import { useSelector } from 'react-redux';
+
 
 const CustomCalendarModal = ({ visible, setVisible }) => {
-    const { themeColor, fontFamily } = useColorTheme();
+    const { themeColor, fontFamily } = useSelector(state => state.theme);
     return (
         <Modal transparent visible={visible} animationType="fade" onRequestClose={() => setVisible(false)}>
             <TouchableWithoutFeedback onPress={() => setVisible(false)}>
