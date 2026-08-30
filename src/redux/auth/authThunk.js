@@ -7,13 +7,13 @@ export const loginUser = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const response = await loginApi(data);
-
       return response;
     } catch (error) {
-      return rejectWithValue(
-        error.response?.data?.message ||
-          'Login failed',
-      );
+      return rejectWithValue({
+        status: error.status,
+        message: error.message,
+        data: error.data,
+      });
     }
   },
 );

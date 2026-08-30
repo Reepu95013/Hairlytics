@@ -9,5 +9,6 @@ export const API_ROUTES = {
   USER: {
     GET_USER: '/users',
     UPDATE_USER: '/users/update',
+    GET_POST:'/posts'
   },
 };

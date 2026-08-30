@@ -15,9 +15,16 @@ const LoginScreen = ({ navigation }) => {
   const commonStyles = createStyles(themeColor, fontFamily);
 
   const [loginData, setLoginData] = useState({ username: '', password: '' });
-
+  
   const onClickLogin = async () => {
-    dispatch(loginUser(loginData));
+    console.log('hi');
+
+    try {
+      const result =  await dispatch(loginUser(loginData)).unwrap();
+      console.log('Login successful:', result);
+    } catch (error) {
+      console.log('Login failed:', error);
+    }
   };
 
   const Header = () => <View style={{ marginTop: 60 }} />;

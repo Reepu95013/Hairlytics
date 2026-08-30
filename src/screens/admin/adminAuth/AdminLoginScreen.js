@@ -11,6 +11,7 @@ import { loginUser } from '../../../redux/auth/authThunk';
 const AdminLoginScreen = ({ navigation }) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
+  const {loading, error} = useSelector(state => state.auth);
   const { themeColor, fontFamily } = useSelector(state => state.theme);
   const commonStyles = createStyles(themeColor, fontFamily);
 
@@ -19,7 +20,17 @@ const AdminLoginScreen = ({ navigation }) => {
   const Header = () => <View style={{ marginTop: 60 }} />;
 
   const onClickLogin = async () => {
-    dispatch(loginUser(loginData));
+    try {
+      const data = {
+        Username: loginData.username,
+        Password: loginData.password,
+      };
+
+      const result = await dispatch(loginUser(data)).unwrap();
+      console.log('admin Login successful:', result);
+    } catch (error) {
+      console.log('Login failed:', error.data);
+    }
   };
 
   return (
@@ -50,7 +61,7 @@ const AdminLoginScreen = ({ navigation }) => {
           required
         />
         <Text style={commonStyles.text}>{t('forgot_password')}?</Text>
-        <CustomButton label={t('login')} onPress={onClickLogin} />
+        <CustomButton label={t('login')} onPress={onClickLogin} loading={loading}/>
 
         <Text style={commonStyles.text}>
           {t('have_no_account')}?

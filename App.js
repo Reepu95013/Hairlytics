@@ -7,6 +7,7 @@ import { LoaderProvider } from './src/context/LoaderContext';
 import store, { persistor } from './src/store/store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import CustomLoader from './src/components/CustomLoader';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -19,7 +20,7 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+      <PersistGate loading={<CustomLoader/>} persistor={persistor}>
         <LoaderProvider>
           <AppNavigator />
         </LoaderProvider>
