@@ -1,9 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { loginUser } from './authThunk';
+import { jwtDecode } from 'jwt-decode';
+import { key } from '../../utils/key';
 
 const initialState = {
   user: null,
   token: null,
+  refreshToken: null,
   loading: false,
   error: null,
   onBoardingStatus: false,
@@ -19,6 +22,7 @@ const authSlice = createSlice({
       state.user = null;
       state.token = null;
       state.error = null;
+      state.refreshToken = null;
     },
 
     clearError: state => {
@@ -51,10 +55,17 @@ const authSlice = createSlice({
 
       // LOGIN SUCCESS
       .addCase(loginUser.fulfilled, (state, action) => {
+        const decoded = jwtDecode(action.payload.data?.token);
+        console.log("decoded", decoded);
+        if (decoded?.role?.toLowerCase() !== 'admin') {
+         state.user = decoded.unique_name;
+         state.token = action.payload.data?.token;
+         state.refreshToken = action.payload.data?.refreshToken,
+         state.role = decoded?.role?.toLowerCase() === 'vendor'? key.STORAGE_KEYS.ADMIN: key.STORAGE_KEYS.USER;
+        }
+        state.error = {data:"Username and Password is not valid"}
         state.loading = false;
-
-        state.user = action.payload.user;
-        state.token = action.payload.token;
+        
       })
 
       // LOGIN FAILED
@@ -65,6 +76,7 @@ const authSlice = createSlice({
   },
 });
 
-export const { logout, clearError, setOnBoardingStatus, setRole, resetRole, } = authSlice.actions;
+export const { logout, clearError, setOnBoardingStatus, setRole, resetRole } =
+  authSlice.actions;
 
 export default authSlice.reducer;

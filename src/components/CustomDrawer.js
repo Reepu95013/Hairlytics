@@ -32,7 +32,7 @@ const CustomDrawer = props => {
       <DrawerItemList {...props} />
 
       <Pressable onPress={()=>dispatch(logout())} style={{ borderWidth: 1, padding: 14 }}>
-        <Text>Log-Out</Text>
+        <Text>Log-Out </Text>
       </Pressable>
     </DrawerContentScrollView>
   );

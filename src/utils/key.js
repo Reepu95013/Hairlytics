@@ -8,7 +8,6 @@ export const key = {
         THEME: 'app_theme',
         LIGHT: 'light',
         DARK: 'dark',
-        CUSTOMER: 'customer',
         BARBER: 'barber',
         ONBOARDING_STATUS: 'onboarding_status',
         CHOOSEACCOUNTS_STATUS: 'chooseaccount_status',
