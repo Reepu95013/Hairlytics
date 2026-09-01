@@ -40,12 +40,11 @@ const ResetPasswordScreen = ({ route }) => {
         password: password,
         confirmPassword: cPassword,
       };
-     const response =  await resetPasswordApi(data);
-     console.log("response", response);
+      await resetPasswordApi(data);
       await onClickLogin();
     } catch (error) {
-      console.log("error", error);
-      const message = typeof error?.data === 'string' ? error?.data : error?.data?.title
+      const message =
+        typeof error?.data === 'string' ? error?.data : error?.data?.title;
 
       dispatch(
         showToast({
@@ -64,9 +63,7 @@ const ResetPasswordScreen = ({ route }) => {
         username: username,
         password: password,
       };
-      console.log("loginData", loginData);
-      const result = await dispatch(loginUser(loginData)).unwrap();
-      console.log('admin Login successful:', result);
+      await dispatch(loginUser(loginData)).unwrap();
     } catch (error) {
       console.log('Login failed:', error.data);
     }
