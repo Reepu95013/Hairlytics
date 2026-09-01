@@ -11,3 +11,21 @@ export const loginApi = async data => {
   });
   return response.data;
 };
+
+export const forgotPasswordApi = async data => {
+  const response = await axiosClient.post(
+    API_ROUTES.AUTH.FORGOT_PASSWORD,
+    data,
+    {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    },
+  );
+  return response.data;
+};
+
+export const resetPasswordApi = async data => {
+  const response = await axiosClient.post(API_ROUTES.AUTH.RESET_PASSWORD, data);
+  return response.data;
+};

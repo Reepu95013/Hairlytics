@@ -9,6 +9,7 @@ import Animated, {
 import { useDispatch } from 'react-redux';
 import { clearError } from '../redux/auth/authSlice';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { hideToast } from '../redux/app/appSlice';
 
 const { width } = Dimensions.get('window');
 
@@ -30,6 +31,7 @@ const AnimatedToast = ({ message, visible, duration = 3000, type }) => {
         });
 
         dispatch(clearError());
+        dispatch(hideToast());
       }, duration);
     }
   }, [visible]);
@@ -93,18 +95,7 @@ const AnimatedToast = ({ message, visible, duration = 3000, type }) => {
                 : '#0435e6'
           }
         />
-        {/* <Image
-          source={
-            type == 'SUCCESS'
-              ? require('../images/success.png')
-              : type == 'ERROR'
-              ? require('../images/error.png')
-              : type == 'WARNING'
-              ? require('../images/warning.png')
-              : require('../images/info.png')
-          }
-          style={styles.toastIcon}
-        /> */}
+      
       </View>
       <Text style={styles.toastText}>{message}</Text>
     </Animated.View>
@@ -132,8 +123,9 @@ const styles = StyleSheet.create({
   },
   toastText: {
     color: '#000',
-    textAlign: 'center',
-    marginLeft: 10,
+    textAlign: 'left',
+    marginHorizontal: 10,
+    width:'80%',
     fontSize: 16,
   },
   sideBar: {

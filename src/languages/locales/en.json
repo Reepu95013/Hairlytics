@@ -58,6 +58,7 @@
   "login": "Login",
   "password": "Password",
   "forgot_password": "Forgot Password",
+  "reset_password": "Reset Password",
   "have_no_account": "Do you have no Account",
   "register": "Register",
   "username": "Username",

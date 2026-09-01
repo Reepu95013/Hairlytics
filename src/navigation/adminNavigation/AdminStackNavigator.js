@@ -9,17 +9,19 @@ import AdminAppointmentViewScreen from '../../screens/admin/adminAppointment/Adm
 import AdminAddServiceScreen from '../../screens/admin/adminService/AdminAddServiceScreen';
 import AdminEditServiceScreen from '../../screens/admin/adminService/AdminEditServiceScreen';
 import { useSelector } from 'react-redux';
+import ForgotPasswordScreen from '../../screens/forgotPassword/ForgotPasswordScreen';
+import ResetPasswordScreen from '../../screens/forgotPassword/ResetPasswordScreen';
 
 const Stack = createStackNavigator();
 
 const AdminStackNavigator = () => {
-  const { token} = useSelector(state => state.auth);
+  const { token } = useSelector(state => state.auth);
   return (
     <Stack.Navigator
-      initialRouteName={token!=null ? 'AdminDrawer' : 'AdminLoginScreen'}
+      initialRouteName={token != null ? 'AdminDrawer' : 'AdminLoginScreen'}
       screenOptions={{ ...TransitionPresets.ModalFadeTransition }}
     >
-      {token !=null ? (
+      {token != null ? (
         <>
           <Stack.Screen
             name="AdminDrawer"
@@ -36,23 +38,34 @@ const AdminStackNavigator = () => {
             component={AdminAddServiceScreen}
             options={{ headerShown: false }}
           />
-           <Stack.Screen
+          <Stack.Screen
             name="AdminEditServiceScreen"
             component={AdminEditServiceScreen}
             options={{ headerShown: false }}
           />
         </>
       ) : (
-        
         <>
           <Stack.Screen
             name="AdminLoginScreen"
             component={AdminLoginScreen}
             options={{ headerShown: false }}
           />
+
           <Stack.Screen
             name="AdminRegisterScreen"
             component={AdminRegisterScreen}
+            options={{ headerShown: false }}
+          />
+
+          <Stack.Screen
+            name="ForgotPasswordScreen"
+            component={ForgotPasswordScreen}
+            options={{ headerShown: false }}
+          />
+           <Stack.Screen
+            name="ResetPasswordScreen"
+            component={ResetPasswordScreen}
             options={{ headerShown: false }}
           />
         </>

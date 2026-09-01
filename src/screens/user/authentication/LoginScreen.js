@@ -13,7 +13,7 @@ const LoginScreen = ({ navigation }) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const { loading, error } = useSelector(state => state.auth);
-  
+
   const { themeColor, fontFamily } = useSelector(state => state.theme);
   const commonStyles = createStyles(themeColor, fontFamily);
   const [loginData, setLoginData] = useState({ username: '', password: '' });
@@ -60,7 +60,12 @@ const LoginScreen = ({ navigation }) => {
             }
             required
           />
-          <Text style={commonStyles.text}>{t('forgot_password')}?</Text>
+          <Text
+            onPress={() => navigation.navigate('ForgotPasswordScreen')}
+            style={commonStyles.text}
+          >
+            {t('forgot_password')}?
+          </Text>
           <CustomButton
             label={t('login')}
             onPress={onClickLogin}
@@ -68,7 +73,7 @@ const LoginScreen = ({ navigation }) => {
           />
 
           <Text style={commonStyles.text}>
-            {t('have_no_account')}? 
+            {t('have_no_account')}?
             <Text
               style={{ color: 'green' }}
               onPress={() => navigation.navigate('SignupScreen')}
@@ -79,9 +84,11 @@ const LoginScreen = ({ navigation }) => {
           </Text>
         </View>
       </SecondLayout>
-      <View style={{marginLeft:12}}>
+      <View style={{ marginLeft: 12 }}>
         <AnimatedToast
-          message={typeof error?.data === "string" ? error?.data: error?.data?.title}
+          message={
+            typeof error?.data === 'string' ? error?.data : error?.data?.title
+          }
           type={'ERROR'}
           visible={error ? true : false}
           duration={3000}

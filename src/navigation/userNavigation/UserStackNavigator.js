@@ -22,6 +22,8 @@ import SignupScreen from '../../screens/user/authentication/SignupScreen';
 import LoginScreen from '../../screens/user/authentication/LoginScreen';
 import GalleryScreen from '../../screens/user/gallery/GalleryScreen';
 import { useSelector } from 'react-redux';
+import ForgotPasswordScreen from '../../screens/forgotPassword/ForgotPasswordScreen';
+import ResetPasswordScreen from '../../screens/forgotPassword/ResetPasswordScreen';
 
 const Stack = createStackNavigator();
 
@@ -125,6 +127,16 @@ const UserStackNavigator = () => {
           <Stack.Screen
             name="SignupScreen"
             component={SignupScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="ForgotPasswordScreen"
+            component={ForgotPasswordScreen}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="ResetPasswordScreen"
+            component={ResetPasswordScreen}
             options={{ headerShown: false }}
           />
         </>
