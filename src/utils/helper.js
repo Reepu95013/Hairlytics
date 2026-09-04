@@ -1,3 +1,4 @@
+import { t } from 'i18next';
 import { PermissionsAndroid, Platform } from 'react-native';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 
@@ -69,6 +70,20 @@ export const captureImageFromCamera = async () => {
   } else {
     console.log('Captured image:', result.assets[0].uri);
     return result.assets[0].uri;
+  }
+};
+
+export const getGreeting = () => {
+  const hour = new Date().getHours();
+
+  if (hour < 12) {
+    return t('good_morning');
+  } else if (hour < 17) {
+    return t('good_afternoon');
+  } else if (hour < 21) {
+    return t('good_evening');;
+  } else {
+    return t('good_night');;
   }
 };
 

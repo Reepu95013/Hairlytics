@@ -3,7 +3,8 @@ import axios from 'axios';
 // https://jsonplaceholder.typicode.com/posts
 
 const axiosClient = axios.create({
-  baseURL: 'http://10.214.38.30:5087/api/',
+  baseURL: 'http://10.30.61.30:5087/api/',
+  
   timeout: 15000,
   headers: {
     'Content-Type': 'application/json',

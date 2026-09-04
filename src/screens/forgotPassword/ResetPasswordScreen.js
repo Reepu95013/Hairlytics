@@ -5,7 +5,6 @@ import CustomInputText from '../../components/CustomInputText';
 import CustomButton from '../../components/CustomButton';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import AnimatedToast from '../../animatedComponents/AnimatedToast';
 import { resetPasswordApi } from '../../api/authApi';
 import { setLoading, showToast } from '../../redux/app/appSlice';
 import { loginUser } from '../../redux/auth/authThunk';
@@ -70,7 +69,7 @@ const ResetPasswordScreen = ({ route }) => {
   };
 
   return (
-    <>
+    
       <SecondLayout screenName={t('reset_password')}>
         <CustomInputText
           label={t('email')}
@@ -112,15 +111,8 @@ const ResetPasswordScreen = ({ route }) => {
         />
       </SecondLayout>
 
-      <View style={{ marginLeft: 12 }}>
-        <AnimatedToast
-          message={toast.message}
-          type={toast.type}
-          visible={toast.visible}
-          duration={3000}
-        />
-      </View>
-    </>
+      
+    
   );
 };
 

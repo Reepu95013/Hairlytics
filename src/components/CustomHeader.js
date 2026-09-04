@@ -5,10 +5,12 @@ import { useNavigation } from '@react-navigation/native';
 
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { getGreeting } from '../utils/helper';
 
 const CustomHeader = () => {
     const { t } = useTranslation();
     const { themeColor,fontFamily } = useSelector(state => state.theme);
+     const { user } = useSelector(state => state.auth);
     const navigation = useNavigation();
     return (
         <View style={{ marginTop: 60, marginBottom: 12, marginHorizontal: 16, flexDirection: 'row', gap: 16 }}>
@@ -22,8 +24,8 @@ const CustomHeader = () => {
 
 
             <View>
-                <Text style={{ fontSize: 14, fontWeight: '600', fontFamily: fontFamily, color: themeColor.secondaryText }}>{t('hi')}, Reepu</Text>
-                <Text style={{ fontSize: 18, fontWeight: '600', fontFamily: fontFamily, color: themeColor.primaryText }}>{t('good_morning')}</Text>
+                <Text style={{ fontSize: 14, fontWeight: '600', fontFamily: fontFamily, color: themeColor.secondaryText }}>{t('hi')}, {user}</Text>
+                <Text style={{ fontSize: 18, fontWeight: '600', fontFamily: fontFamily, color: themeColor.primaryText }}>{ getGreeting() }</Text>
             </View>
         </View>
     )

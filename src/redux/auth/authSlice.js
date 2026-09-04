@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { loginUser } from './authThunk';
+import { createAccount, loginUser } from './authThunk';
 import { jwtDecode } from 'jwt-decode';
 import { key } from '../../utils/key';
 
@@ -56,20 +56,46 @@ const authSlice = createSlice({
       // LOGIN SUCCESS
       .addCase(loginUser.fulfilled, (state, action) => {
         const decoded = jwtDecode(action.payload.data?.token);
-        console.log("decoded", decoded);
+        console.log('decoded', decoded);
         if (decoded?.role?.toLowerCase() !== 'admin') {
-         state.user = decoded.unique_name;
-         state.token = action.payload.data?.token;
-         state.refreshToken = action.payload.data?.refreshToken,
-         state.role = decoded?.role?.toLowerCase() === 'vendor'? key.STORAGE_KEYS.ADMIN: key.STORAGE_KEYS.USER;
+          state.user = decoded.unique_name;
+          state.token = action.payload.data?.token;
+          (state.refreshToken = action.payload.data?.refreshToken),
+            (state.role =
+              decoded?.role?.toLowerCase() === 'vendor'
+                ? key.STORAGE_KEYS.ADMIN
+                : key.STORAGE_KEYS.USER);
+        }else{
+          state.error = { data: 'Username and Password is not valid' };
         }
-        state.error = {data:"Username and Password is not valid"}
+
+        state.error = null
         state.loading = false;
-        
       })
 
       // LOGIN FAILED
       .addCase(loginUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+
+      // ========================= // CREATE ACCOUNT // =========================
+      .addCase(createAccount.pending, state => {
+        state.loading = true;
+        state.error = null;
+      })
+
+      .addCase(createAccount.fulfilled, (state, action) => {
+        const decoded = jwtDecode(action.payload.data?.token);
+          state.user = decoded.unique_name;
+          state.token = action.payload.data?.token;
+          state.refreshToken = action.payload.data?.refreshToken,
+          state.role =decoded?.role;
+          state.error = null
+          state.loading = false;
+      })
+      // Don't set token/user here unless // your register API returns a token. })
+      .addCase(createAccount.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       });
